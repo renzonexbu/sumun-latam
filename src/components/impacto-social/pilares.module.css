@@ -1,0 +1,191 @@
+/* Fondo blanco, 124px arriba y 143px a los costados. ponytail: padding inferior estimado (= 124). */
+/* Arriba 184px (Figma 124; +60 a pedido para separarla de la franja del hero). */
+.section {
+  padding: 184px calc(143 / 1440 * 100vw) 124px;
+  background: #fff;
+}
+
+/* Tarjeta: radio 40, padding 70 / 80, contenido alineado abajo. */
+.card {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 70px 80px;
+  overflow: hidden;
+  border: 2px solid #eee;
+  border-radius: 40px;
+  background: #fff;
+  box-shadow:
+    inset 0 0 12px 0 #daf5fe,
+    inset 0 -24px 24px -16px #fff,
+    inset 0 4px 40.5px -16px #fff,
+    0 36px 32px -16px rgba(0, 55, 76, 0.13);
+}
+
+/* Foto de 914.89 × 610 espejada; asoma su tramo de x = 265…765 (posición de Figma). */
+.media {
+  position: relative;
+  flex-shrink: 0;
+  width: 500px;
+  height: 610px;
+  overflow: hidden;
+  background: #d8d8d8;
+  box-shadow:
+    inset -5.11px -6.82px 8.52px 0 rgba(248, 248, 248, 0.25),
+    inset 4.26px 8.52px 8.52px 0 rgba(233, 233, 233, 0.25);
+}
+
+.media img {
+  position: absolute;
+  top: 0;
+  left: -265px;
+  width: 914.89px;
+  max-width: none;
+  height: 610px;
+  object-fit: cover;
+  transform: scaleX(-1);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  width: 461px;
+  color: #003d4c;
+}
+
+/* Token normal-title: Figtree SemiBold 48/49. */
+.title {
+  margin: 0;
+  font-family: var(--font-figtree), sans-serif;
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 49px;
+}
+
+.lista {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  min-height: 190px;
+  animation: cambiar 0.5s ease both;
+}
+
+@keyframes cambiar {
+  from {
+    opacity: 0;
+    transform: translateX(16px);
+  }
+}
+
+.pilar,
+.item {
+  margin: 0;
+  font-family: var(--font-manrope), sans-serif;
+  line-height: 26px;
+}
+
+.pilar {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.item {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+/* Provisorio: check dibujado (mynaui-check.svg no vino en los assets). */
+.check {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.5;
+}
+
+.puntos {
+  display: flex;
+  gap: 10px;
+}
+
+.punto,
+.puntoActivo {
+  width: 8.49px;
+  height: 8.49px;
+  padding: 0;
+  border: 1px solid #004656;
+  border-radius: 50%;
+  background: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.puntoActivo {
+  background: #004656;
+}
+
+@media (max-width: 1200px) {
+  .section {
+    padding: 80px 24px;
+  }
+
+  .card {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 40px 24px;
+  }
+
+  .media {
+    width: 100%;
+    height: 420px;
+  }
+
+  .media img {
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .content {
+    width: 100%;
+  }
+
+  .title {
+    font-size: 36px;
+    line-height: 1.1;
+  }
+}
+
+/* Al llegar: la tarjeta sube con un fade. */
+.card {
+  opacity: 0;
+  transform: translateY(32px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.section[data-revealed] .card {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .lista {
+    animation: none;
+  }
+}

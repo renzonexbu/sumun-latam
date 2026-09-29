@@ -1,0 +1,147 @@
+/* ponytail: padding de la sección y ancho de la fila no vinieron en el export; estimados. */
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+  align-items: center;
+  padding: 100px 24px;
+  background: #fff;
+}
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: center;
+}
+
+/* Provisorio: colores de heading-span / heading-span2 y text-span2 no vinieron en el export. */
+.title {
+  margin: 0;
+  color: #003d4c;
+  font-family: var(--font-figtree), sans-serif;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.accent {
+  color: #0095cd;
+}
+
+.lead {
+  margin: 0;
+  color: #696969;
+  font-family: var(--font-manrope), sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.lead b {
+  font-weight: 700;
+}
+
+.lista {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 48px 24px;
+  width: min(1188px, 100%);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  align-items: center;
+  width: 261px;
+}
+
+/* Bloque de 259 × 258; la imagen (con aro) mide 339 y sobresale 40px por lado. */
+.foto {
+  position: relative;
+  width: 259px;
+  height: 258px;
+}
+
+.foto img {
+  position: absolute;
+  top: -40px;
+  left: -40px;
+  width: 339px;
+  max-width: none;
+  height: 339px;
+}
+
+.texts {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+  color: #003d4c;
+  font-family: var(--font-manrope), sans-serif;
+  text-align: center;
+}
+
+/* Provisorio: token h4 sin valor; 20px como en el hero. */
+.name {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.role {
+  max-width: 271px;
+  margin: 0;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: normal;
+}
+
+@media (max-width: 1240px) {
+  .lista {
+    justify-content: center;
+  }
+}
+
+/* Al llegar: título y personas suben de a una. Hover: la foto se acerca apenas. */
+.intro,
+.item {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.item {
+  transition-delay: calc(0.15s + var(--i) * 0.12s);
+}
+
+.section[data-revealed] .intro,
+.section[data-revealed] .item {
+  opacity: 1;
+  transform: none;
+}
+
+.foto img {
+  transition: transform 0.4s ease;
+}
+
+.item:hover .foto img {
+  transform: scale(1.04);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .intro,
+  .item {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

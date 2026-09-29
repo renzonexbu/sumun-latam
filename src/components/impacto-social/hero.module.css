@@ -1,0 +1,216 @@
+/*
+ * Frame de 1440 × 800. --px = 1px de Figma: la escena escala con el ancho.
+ * ponytail: alto, posiciones de la foto, íconos y franja medidas de la captura.
+ */
+.section {
+  --px: calc(100vw / 1440);
+  position: relative;
+  z-index: 1;
+  min-height: calc(750 * var(--px));
+  padding: calc(200 * var(--px)) 24px 80px calc(92 * var(--px));
+  border: 1px solid #e2e2e2;
+  border-bottom: 0;
+  /* Recorta arriba y a los costados; la franja baja sobre la sección siguiente. */
+  clip-path: inset(0 0 -600px 0);
+  /* Se funde en blanco abajo para mezclarse con la sección siguiente. */
+  background: linear-gradient(180deg, #f2f5fc 55%, #fff 100%);
+}
+
+/* Por encima de la franja: el texto nunca queda tapado. */
+.texts {
+  position: relative;
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: min(520px, 100%);
+  color: #003d4c;
+}
+
+/* Token cuerpo-de-texto-m: Manrope SemiBold 22/26. */
+.eyebrow {
+  margin: 0;
+  color: #f15a2e;
+  font-family: var(--font-manrope), sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 26px;
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-figtree), sans-serif;
+  font-size: 50px;
+  font-weight: 600;
+  line-height: 54px;
+}
+
+/* Provisorio: la fuente de los spans vino rota ("-"); Manrope 18, la primera línea en negrita. */
+.lead {
+  margin: 0;
+  font-family: var(--font-manrope), sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.01em;
+}
+
+.lead + .lead {
+  margin-top: 6px;
+}
+
+.lead b {
+  font-weight: 700;
+}
+
+/* Más grande y más abajo: su borde inferior queda tapado por la franja, como en Figma. */
+.foto {
+  position: absolute;
+  top: calc(100 * var(--px));
+  right: 0;
+  width: calc(930 * var(--px));
+  max-width: none;
+  height: auto;
+}
+
+/* Círculo de vidrio de Figma. */
+.icono {
+  position: absolute;
+  z-index: 3; /* encima de la franja, como en la captura */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--d);
+  height: var(--d);
+  border: 1.143px solid #fff;
+  border-radius: 173.913px;
+  background: linear-gradient(
+    197deg,
+    rgba(255, 235, 225, 0.03) 2.63%,
+    rgba(239, 221, 212, 0.03) 42.97%,
+    rgba(169, 209, 223, 0.07) 79.57%,
+    rgba(87, 196, 236, 0.11) 79.59%,
+    rgba(255, 255, 255, 0.2) 95.59%
+  );
+  backdrop-filter: blur(2px);
+  transform: translate(-50%, -50%);
+}
+
+.icono img {
+  width: calc(var(--d) * 0.56);
+  height: auto;
+}
+
+/* Posiciones = centro del círculo. */
+.tierra {
+  --d: calc(80 * var(--px));
+  top: calc(504 * var(--px));
+  left: calc(908 * var(--px));
+}
+
+.reciclar {
+  --d: calc(80 * var(--px));
+  top: calc(337 * var(--px));
+  left: calc(1308 * var(--px));
+}
+
+.manos {
+  --d: calc(160 * var(--px));
+  top: calc(727 * var(--px));
+  left: calc(569 * var(--px));
+}
+
+/*
+ * Franja: caja de 2217.2 × 678.46 con el fondo exacto de Figma (sin el lightgray),
+ * con la rotación de Figma.
+ * ponytail: escala y posición ajustadas a ojo contra la captura; confirmar con el nodo.
+ */
+.franja {
+  --k: var(--px);
+  position: absolute;
+  z-index: 2;
+  top: calc(450 * var(--px));
+  left: calc(-300 * var(--px));
+  width: calc(2217.2 * var(--k));
+  height: calc(678.46 * var(--k));
+  background: url("/images/impacto-social/franja.png") calc(235.217 * var(--k))
+    calc(-219.307 * var(--k)) / 102.276% 180.747% no-repeat;
+  transform: rotate(-4.288deg);
+  pointer-events: none;
+}
+
+/* Entrada al cargar: solo textos e íconos (la foto y la franja quedan fijas). */
+@keyframes subeSuave {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+}
+
+@keyframes iconoEntra {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.6);
+  }
+}
+
+@keyframes flotar {
+  50% {
+    translate: 0 -6px;
+  }
+}
+
+.texts {
+  animation: subeSuave 0.8s ease-out 0.1s both;
+}
+
+/* Entrada y flotación juntas: una anima transform y la otra translate. */
+.icono {
+  animation:
+    iconoEntra 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) var(--entrada) both,
+    flotar 5s ease-in-out var(--flote) infinite;
+}
+
+.tierra {
+  --entrada: 0.6s;
+  --flote: 0s;
+}
+
+.reciclar {
+  --entrada: 0.75s;
+  --flote: -1.7s;
+}
+
+.manos {
+  --entrada: 0.9s;
+  --flote: -3.4s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .texts,
+  .icono {
+    animation: none;
+  }
+}
+
+/* Sin diseño mobile aún: texto arriba, escena debajo. */
+@media (max-width: 900px) {
+  .section {
+    padding: 140px 24px 90vw;
+  }
+
+  .title {
+    font-size: 38px;
+    line-height: 1.1;
+  }
+
+  .foto {
+    top: auto;
+    bottom: 10vw;
+    width: 100vw;
+  }
+
+  .icono {
+    display: none;
+  }
+}

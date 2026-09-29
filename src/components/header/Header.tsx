@@ -16,8 +16,8 @@ const navItems = [
 
 export function Header() {
   const [open, setOpen] = useState(false);
-  // En Tutor IA el header va como píldora blanca sobre el hero oscuro.
-  const solid = usePathname() === "/tutor-ia";
+  // Header como píldora blanca en las vistas que lo llevan así en Figma.
+  const solid = ["/tutor-ia", "/conversaciones-sumun", "/impacto-social"].includes(usePathname());
 
   // Cierra el menú mobile con Escape y si la pantalla vuelve a ser ancha.
   useEffect(() => {
