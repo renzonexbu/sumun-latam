@@ -1,0 +1,386 @@
+.section {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Lienzo del frame de Figma (1440 × 1077). */
+.stage {
+  position: relative;
+  max-width: 1440px;
+  min-height: 1077px;
+  margin: 0 auto;
+  padding-top: 135px;
+}
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  align-items: center;
+  width: min(1185px, calc(100% - 48px));
+  margin-left: max(24px, 9.27%);
+  color: #003d4c;
+  text-align: center;
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-figtree), sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 52px;
+  text-box: trim-both cap alphabetic;
+}
+
+.lead {
+  margin: -28px 0 0;
+  font-family: var(--font-manrope), sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50.85px;
+  padding: 12.93px 22.16px;
+  border: 1px solid #89d5f1;
+  border-radius: 92.32px;
+  background: #fff;
+  color: #0095cd;
+  font-family: var(--font-manrope), sans-serif;
+  font-size: 16.62px;
+  font-weight: 700;
+  line-height: 1.5;
+  white-space: nowrap;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.button:hover {
+  background: var(--celeste, #00b9ff);
+  border-color: var(--celeste, #00b9ff);
+  color: #fff;
+}
+
+
+.cards {
+  position: absolute;
+  top: 413px;
+  left: 7.64%;
+  width: 1185px;
+  height: 615px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.item,
+.itemActive {
+  position: absolute;
+  top: 0;
+  width: 380px;
+  height: 591px;
+  outline: none;
+  cursor: pointer;
+}
+
+.item:nth-child(1),
+.itemActive:nth-child(1) {
+  left: 0.5px;
+}
+
+.item:nth-child(2),
+.itemActive:nth-child(2) {
+  left: 402.93px;
+}
+
+.item:nth-child(3),
+.itemActive:nth-child(3) {
+  left: 805.5px;
+}
+
+.itemActive {
+  z-index: 2;
+}
+
+.item:focus-visible .user,
+.itemActive:focus-visible .user {
+  outline: 2px solid #0095cd;
+  outline-offset: 4px;
+}
+
+/* Tarjeta con foto (380 × 433) */
+.user {
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* Contexto de apilamiento propio: el borde (::after) no debe pintarse sobre la caja girada. */
+  z-index: 0;
+  width: 380px;
+  height: 433px;
+  overflow: hidden;
+  border-radius: 40px;
+  background: #eee;
+  box-shadow: 10.636px 10.636px 34.566px 0 rgba(235, 235, 235, 0);
+  transition: box-shadow 0.4s ease;
+}
+
+/* Borde blanco del estado activo, por encima de la foto. */
+.user::after {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  border: 1.773px solid #fff;
+  border-radius: inherit;
+  box-shadow:
+    inset 4.432px 8.863px 8.863px 0 rgba(233, 233, 233, 0.25),
+    inset -5.318px -7.09px 8.863px 0 rgba(248, 248, 248, 0.25);
+  content: "";
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+.glow {
+  position: absolute;
+  inset: 0;
+  background: #fff
+    linear-gradient(
+      214.99deg,
+      rgba(111, 216, 255, 0.39) 6.4%,
+      rgba(218, 245, 254, 0.39) 33.17%,
+      rgba(225, 239, 245, 0.39) 78.74%,
+      rgba(243, 222, 217, 0.39) 101.63%,
+      rgba(241, 90, 46, 0.39) 116.1%
+    );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.photoGris,
+.photoColor {
+  position: absolute;
+  max-width: none;
+  object-fit: cover;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+.photoGris {
+  opacity: 0.7;
+}
+
+.photoColor {
+  opacity: 0;
+}
+
+.fade {
+  position: absolute;
+  left: 0;
+  width: 380px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0) 4.094%,
+    rgba(255, 255, 255, 0.24) 59.363%,
+    #fff 106.44%
+  );
+  transition: opacity 0.4s ease;
+}
+
+.userLabel {
+  position: absolute;
+  top: 363px;
+  left: 36px;
+  z-index: 2;
+  margin: 0;
+  color: #696969;
+  font-family: var(--font-figtree), sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: normal;
+  white-space: nowrap;
+  transition: opacity 0.3s ease;
+}
+
+.itemActive .user {
+  box-shadow: 10.636px 10.636px 34.566px 0 #ebebeb;
+}
+
+.itemActive .user::after,
+.itemActive .glow,
+.itemActive .photoColor {
+  opacity: 1;
+}
+
+.itemActive .photoGris,
+.itemActive .fade,
+.itemActive .userLabel {
+  opacity: 0;
+}
+
+/* Caja girada: 359.2 × 365.3 rotada -7.77° (bounding box de Figma 405.3 × 410.6 en top 180, left -5). */
+.mejor {
+  position: absolute;
+  top: 202.6px;
+  left: 17.6px;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-sizing: border-box;
+  width: 359.22px;
+  min-height: 365.3px;
+  padding: 35px 40px;
+  overflow: hidden;
+  border-radius: 40px;
+  background: #fff;
+  box-shadow: 9.571px 9.571px 31.107px 0 #ebebeb;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(40px) rotate(0deg);
+  transform-origin: center;
+  transition:
+    opacity 0.35s ease,
+    transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.itemActive .mejor {
+  opacity: 1;
+  transform: translateY(0) rotate(-7.77deg);
+}
+
+.mejorHead {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.mejorTitle {
+  width: 191px;
+  margin: 0;
+  color: #003d4c;
+  font-family: var(--font-figtree), sans-serif;
+  font-size: 35px;
+  font-weight: 700;
+  line-height: 30.22px;
+}
+
+.mejorIcon {
+  flex-shrink: 0;
+  width: 31.948px;
+  height: 31.948px;
+}
+
+.mejorText {
+  flex: 1;
+  margin: 0;
+  color: #003d4c;
+  font-family: var(--font-manrope), sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 23px;
+}
+
+.mejorFoot {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.logo {
+  width: 51.38px;
+  height: 37.33px;
+  object-fit: cover;
+  mix-blend-mode: multiply;
+}
+
+.tagline {
+  margin: 0;
+  color: #f15a2e;
+  font-family: var(--font-manrope), sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 23px;
+  white-space: nowrap;
+}
+
+/* Por debajo del ancho de las 3 tarjetas se apilan. */
+@media (max-width: 1280px) {
+  .stage {
+    min-height: 0;
+    padding: 96px 0;
+  }
+
+  .intro {
+    margin: 0 auto;
+  }
+
+  .cards {
+    position: relative;
+    top: auto;
+    left: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px 24px;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+    margin-top: 64px;
+    padding: 0 16px;
+  }
+
+  .item,
+  .itemActive,
+  .item:nth-child(n),
+  .itemActive:nth-child(n) {
+    position: relative;
+    left: auto;
+    flex-shrink: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .title {
+    font-size: 34px;
+    line-height: 38px;
+  }
+
+  .lead {
+    margin-top: -24px;
+    font-size: 16px;
+  }
+
+  .cards {
+    margin-top: 40px;
+  }
+
+  /* En mobile solo la tarjeta activa reserva el espacio de la caja girada. */
+  .item {
+    height: 433px;
+  }
+}
+
+@media (max-width: 420px) {
+  .item,
+  .itemActive {
+    zoom: 0.86;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .user,
+  .user::after,
+  .glow,
+  .photoGris,
+  .photoColor,
+  .fade,
+  .userLabel,
+  .mejor {
+    transition: none;
+  }
+}

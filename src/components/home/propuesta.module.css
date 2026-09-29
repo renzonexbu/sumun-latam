@@ -1,0 +1,259 @@
+.section {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  background: #003d4c;
+}
+
+/* Lienzo del frame de Figma (1439 × 989). */
+.stage {
+  position: relative;
+  max-width: 1439px;
+  min-height: 989px;
+  margin: 0 auto;
+  padding: 208px 0 0;
+}
+
+.intro {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 0 8.55% 0 8.76%;
+}
+
+.title {
+  width: 554.5px;
+  max-width: 100%;
+  margin: 0;
+  color: #fff;
+  font-family: var(--font-figtree), sans-serif;
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 49px;
+  text-box: trim-both cap alphabetic;
+}
+
+.lead {
+  width: 467px;
+  max-width: 100%;
+  margin: 0;
+  color: #fff;
+  font-family: var(--font-manrope), sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.pilares {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  gap: 70px;
+  align-items: flex-start;
+  margin: 82px 0 0 9.1%;
+  width: min(1202px, 83.53%);
+}
+
+.pilar,
+.pilarActive {
+  display: flex;
+  flex: 1 0 0;
+  gap: 20px;
+  align-items: flex-start;
+  min-width: 0;
+}
+
+.line {
+  position: relative;
+  flex-shrink: 0;
+  width: 2px;
+  background: #daf5fe;
+  opacity: 0.4;
+  transition:
+    height 0.35s ease,
+    opacity 0.35s ease;
+}
+
+.line::after {
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background: #daf5fe;
+  content: "";
+  transform: translateX(-50%);
+}
+
+.pilarActive .line {
+  opacity: 0.9;
+}
+
+.pilarBody {
+  display: flex;
+  flex-direction: column;
+  gap: 27.66px;
+  width: 311px;
+  max-width: 100%;
+}
+
+.pilarActive .pilarBody {
+  width: 374px;
+}
+
+.pilarHead {
+  display: flex;
+  flex-direction: column;
+  gap: 14.67px;
+  align-items: flex-start;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: #fefefe;
+  text-align: left;
+  opacity: 0.4;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.pilarHead:hover,
+.pilarHead:focus-visible {
+  opacity: 0.7;
+}
+
+.pilarActive .pilarHead {
+  gap: 17.64px;
+  opacity: 1;
+  cursor: default;
+}
+
+.eyebrow {
+  font-family: var(--font-manrope), sans-serif;
+  font-size: 17.93px;
+  font-weight: 600;
+  line-height: 21.19px;
+  text-box: trim-both cap alphabetic;
+}
+
+.pilarTitle {
+  font-family: var(--font-figtree), sans-serif;
+  font-size: 28.53px;
+  font-weight: 700;
+  line-height: 30.16px;
+  white-space: nowrap;
+  text-box: trim-both cap alphabetic;
+}
+
+.pilarActive .eyebrow {
+  font-size: 21.56px;
+  line-height: 25.48px;
+}
+
+.pilarActive .pilarTitle {
+  font-size: 34.31px;
+  line-height: 36.27px;
+}
+
+.pilarText {
+  width: 350px;
+  max-width: 100%;
+  margin: 0;
+  color: #daf5fe;
+  font-family: var(--font-manrope), sans-serif;
+  font-size: 19.24px;
+  font-weight: 500;
+  line-height: 1.5;
+  animation: fade 0.35s ease;
+}
+
+.ola {
+  position: absolute;
+  top: 565px;
+  left: -25.4%;
+  z-index: 2;
+  width: 168.76%;
+  aspect-ratio: 2428.45 / 1012.24;
+  overflow: hidden;
+  pointer-events: none;
+  transform: rotate(-0.86deg);
+}
+
+.ola img {
+  position: absolute;
+  top: -20.8%;
+  left: 10.4%;
+  width: 102.28%;
+  max-width: none;
+  height: 132.69%;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 1100px) {
+  .stage {
+    min-height: 0;
+    padding: 120px 24px 0;
+  }
+
+  .intro {
+    flex-direction: column;
+    gap: 24px;
+    padding: 0;
+  }
+
+  .title {
+    font-size: 36px;
+    line-height: 38px;
+  }
+
+  .lead {
+    font-size: 18px;
+  }
+
+  .pilares {
+    flex-direction: column;
+    gap: 36px;
+    width: 100%;
+    margin: 56px 0 0;
+  }
+
+  .line {
+    height: auto !important;
+    align-self: stretch;
+  }
+
+  .pilarBody,
+  .pilarActive .pilarBody {
+    width: 100%;
+  }
+
+  .pilarText {
+    width: 100%;
+    font-size: 17px;
+  }
+
+  /* En mobile la ola va en el flujo, debajo de los pilares. */
+  .ola {
+    position: relative;
+    top: auto;
+    left: -70%;
+    width: 240%;
+    margin: 8px 0 -38vw;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .line,
+  .pilarText {
+    transition: none;
+    animation: none;
+  }
+}

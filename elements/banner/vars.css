@@ -1,0 +1,104 @@
+/* Figma Styles of your File */
+:root {
+  /* Colors */
+  --holo: radial-gradient(
+    closest-side,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(242, 254, 254, 1) 36.057692766189575%,
+    rgba(231, 254, 254, 1) 43.75%,
+    rgba(251, 243, 125, 1) 62.0192289352417%,
+    rgba(20, 240, 235, 1) 69.71153616905212%,
+    rgba(191, 0, 205, 1) 86.53846383094788%
+  );
+  --stroke-glass: linear-gradient(
+    225deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 0) 50%,
+    rgba(255, 255, 255, 1) 100%
+  );
+  --neutros-blanco: #fefefe;
+  --neutros-gris-claro: #fbfbfb;
+  --neutros-gris-neutral: #eeeeee;
+  --neutros-gris: #696969;
+  --primarios-azul-oscuro: #004656;
+  --primarios-truquesa: #0083af;
+  --primarios-naranja: #f15a2e;
+  --secundarios-naranja-400: #d83506;
+  --secundarios-naranja-300: #f15a2e;
+  --secundarios-naranja-200: #ff6f00;
+  --secundarios-naranja-100: #e2e2f0;
+  --secundarios-truquesa-400: #0095cd;
+  --secundarios-truquesa-300: #00b9ff;
+  --secundarios-truquesa-200: #89d5f1;
+  --secundarios-truquesa-100: #c8e2f9;
+  --secundarios-verde-400: #006678;
+  --secundarios-verde-300: #268d9e;
+  --secundarios-verde-200: #00afa5;
+  --especiales-degrade-solido: linear-gradient(
+    251.15deg,
+    rgba(216, 53, 6, 1) 7.150758057832718%,
+    rgba(220, 197, 203, 1) 26.10262632369995%,
+    rgba(226, 226, 240, 1) 32.21215903759003%,
+    rgba(200, 226, 249, 1) 38.00974488258362%,
+    rgba(162, 210, 238, 1) 48.43052625656128%,
+    rgba(105, 186, 221, 1) 62.75678277015686%,
+    rgba(108, 188, 223, 1) 69.9891746044159%,
+    rgba(0, 131, 175, 1) 83.10525417327881%
+  );
+  --especiales-degrade-lineal: linear-gradient(
+    253.84deg,
+    rgba(241, 90, 46, 0.67) 8.4231436252594%,
+    rgba(254, 254, 254, 0.67) 20.220553874969482%,
+    rgba(254, 254, 254, 0.67) 49.67682063579559%,
+    rgba(255, 255, 255, 0.67) 85.74613332748413%,
+    rgba(0, 149, 205, 0.67) 100%
+  );
+  --texto-azul-oscuro: #003d4c;
+
+  /* Fonts */
+  --big-title-font-family: Figtree-SemiBold, sans-serif;
+  --big-title-font-size: 54px;
+  --big-title-line-height: 58px;
+  --big-title-font-weight: 600;
+  --big-title-font-style: normal;
+  --normal-title-font-family: Figtree-SemiBold, sans-serif;
+  --normal-title-font-size: 48px;
+  --normal-title-line-height: 49px;
+  --normal-title-font-weight: 600;
+  --normal-title-font-style: normal;
+  --subtitle-font-family: Figtree-SemiBold, sans-serif;
+  --subtitle-font-size: 35px;
+  --subtitle-line-height: 37px;
+  --subtitle-font-weight: 600;
+  --subtitle-font-style: normal;
+  --small-subtitle-font-family: Figtree-SemiBold, sans-serif;
+  --small-subtitle-font-size: 30px;
+  --small-subtitle-line-height: 30px;
+  --small-subtitle-font-weight: 600;
+  --small-subtitle-font-style: normal;
+  --cuerpo-de-texto-l-font-family: Manrope-SemiBold, sans-serif;
+  --cuerpo-de-texto-l-font-size: 25px;
+  --cuerpo-de-texto-l-line-height: 33px;
+  --cuerpo-de-texto-l-font-weight: 600;
+  --cuerpo-de-texto-l-font-style: normal;
+  --cuerpo-de-texto-m-font-family: Manrope-SemiBold, sans-serif;
+  --cuerpo-de-texto-m-font-size: 22px;
+  --cuerpo-de-texto-m-line-height: 26px;
+  --cuerpo-de-texto-m-font-weight: 600;
+  --cuerpo-de-texto-m-font-style: normal;
+  --cuerpo-de-texto-font-family: Manrope-Medium, sans-serif;
+  --cuerpo-de-texto-font-size: 20px;
+  --cuerpo-de-texto-line-height: 26px;
+  --cuerpo-de-texto-font-weight: 500;
+  --cuerpo-de-texto-font-style: normal;
+  --inputs-font-family: Manrope-Medium, sans-serif;
+  --inputs-font-size: 16px;
+  --inputs-line-height: 20px;
+  --inputs-font-weight: 500;
+  --inputs-font-style: normal;
+
+  /* Effects */
+  --glass-svg-box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.1);
+  --glass-svg-backdrop-filter: blur(2px);
+}
+/* Figma Color Variables of your File */

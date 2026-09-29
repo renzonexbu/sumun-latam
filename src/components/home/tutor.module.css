@@ -1,0 +1,284 @@
+.section {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(
+    129.42deg,
+    #fff 0%,
+    #fff5f0 30%,
+    #ffe5d4 70%,
+    #ffdcc4 100%
+  );
+}
+
+/* Lienzo del frame de Figma (1448 × 991). */
+.stage {
+  position: relative;
+  max-width: 1448px;
+  min-height: 991px;
+  margin: 0 auto;
+  padding-top: 119px;
+}
+
+.intro {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 27px;
+  align-items: center;
+  width: min(1072px, calc(100% - 48px));
+  margin: 0 auto;
+  color: #004656;
+  text-align: center;
+  transform: translateX(11px);
+}
+
+.eyebrow {
+  margin: 0;
+  font-family: var(--font-manrope), sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 26px;
+  text-box: trim-both cap alphabetic;
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-figtree), sans-serif;
+  font-size: 50px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.accent {
+  color: #ff6f00;
+}
+
+.lead {
+  max-width: 965px;
+  margin: 0;
+  font-family: var(--font-manrope), sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.mockup {
+  position: relative;
+  width: min(1039px, calc(100% - 48px));
+  height: 505.89px;
+  margin: 39px auto 0;
+  overflow: hidden;
+  border-radius: 10.54px;
+  background: #feffff;
+  box-shadow: 0 0 14.05px 0 rgba(0, 0, 0, 0.1);
+  transform: translateX(10.5px);
+}
+
+.mockupImage {
+  position: absolute;
+  top: 22.84px;
+  left: 6.17%;
+  width: 90.19%;
+  aspect-ratio: 937.12 / 624.45;
+  overflow: hidden;
+}
+
+.mockupImage img {
+  position: absolute;
+  top: -3.66%;
+  left: 0;
+  width: 100%;
+  max-width: none;
+  height: 103.69%;
+}
+
+.veil {
+  position: absolute;
+  inset: 0;
+  background: rgba(247, 247, 247, 0.4);
+  backdrop-filter: blur(1.757px);
+}
+
+.demo {
+  position: absolute;
+  top: calc(50% + 0.37px);
+  left: calc(50% + 0.38px);
+  display: flex;
+  gap: 6.49px;
+  align-items: center;
+  justify-content: center;
+  padding: 11.35px 19.46px;
+  border: 0.878px solid #fefefe;
+  border-radius: 81.09px;
+  background: #f15a2e;
+  color: #fefefe;
+  font-family: var(--font-manrope), sans-serif;
+  font-size: 14.6px;
+  font-weight: 700;
+  line-height: 1.5;
+  white-space: nowrap;
+  transform: translate(-50%, -50%);
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.demo:hover {
+  background: #d9481f;
+  transform: translate(-50%, -50%) scale(1.04);
+}
+
+/* Formas 3D naranjas: se ajustan con contain alineadas abajo, como en Figma. */
+.forma {
+  position: absolute;
+  pointer-events: none;
+}
+
+.forma img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  object-fit: contain;
+  object-position: bottom;
+}
+
+.formaIzq {
+  top: 22px;
+  left: -39.16%;
+  width: 81.42%;
+  aspect-ratio: 1179 / 810;
+}
+
+.formaDer {
+  top: -92px;
+  left: 55.11%;
+  width: 77.21%;
+  aspect-ratio: 1118 / 810;
+}
+
+/*
+ * Revelado: los vidrios arrancan en la posición de Figma (tapando el contenido)
+ * y se abren hacia los costados mientras la sección entra en pantalla.
+ */
+.section {
+  view-timeline: --tutor block;
+}
+
+@keyframes abrirIzq {
+  to {
+    transform: translate(-38%, 12%) rotate(-6deg);
+  }
+}
+
+@keyframes abrirDer {
+  to {
+    transform: translate(40%, -14%) rotate(6deg);
+  }
+}
+
+@supports (animation-timeline: view()) {
+  .formaIzq,
+  .formaDer {
+    animation-duration: auto;
+    animation-timing-function: linear;
+    animation-fill-mode: both;
+    animation-timeline: --tutor;
+    animation-range: entry 25% cover 50%;
+  }
+
+  .formaIzq {
+    animation-name: abrirIzq;
+  }
+
+  .formaDer {
+    animation-name: abrirDer;
+  }
+}
+
+@supports not (animation-timeline: view()) {
+  .formaIzq,
+  .formaDer {
+    transition: transform 1.4s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .section[data-revealed] .formaIzq {
+    transform: translate(-38%, 12%) rotate(-6deg);
+  }
+
+  .section[data-revealed] .formaDer {
+    transform: translate(40%, -14%) rotate(6deg);
+  }
+}
+
+/* Sin animación: los vidrios quedan abiertos para no tapar el contenido. */
+@media (prefers-reduced-motion: reduce) {
+  .formaIzq,
+  .formaDer {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .formaIzq {
+    transform: translate(-38%, 12%) rotate(-6deg);
+  }
+
+  .formaDer {
+    transform: translate(40%, -14%) rotate(6deg);
+  }
+}
+
+@media (max-width: 1100px) {
+  .stage {
+    min-height: 0;
+    padding: 96px 0;
+  }
+
+  .intro,
+  .mockup {
+    transform: none;
+  }
+
+  .title {
+    font-size: 38px;
+  }
+
+  .lead {
+    font-size: 16px;
+  }
+
+  .mockup {
+    height: auto;
+    aspect-ratio: 1039 / 505.89;
+  }
+
+  .formaIzq {
+    top: auto;
+    bottom: -4%;
+    left: -45%;
+    width: 90%;
+  }
+
+  .formaDer {
+    top: -40px;
+    left: 62%;
+    width: 80%;
+  }
+}
+
+@media (max-width: 600px) {
+  .title {
+    font-size: 32px;
+  }
+
+  .mockup {
+    aspect-ratio: 4 / 3;
+  }
+
+  .mockupImage {
+    top: 12px;
+    left: 3%;
+    width: 94%;
+  }
+}

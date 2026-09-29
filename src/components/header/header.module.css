@@ -1,0 +1,203 @@
+/* Va encima del banner: frame de Figma de 1357 × 54 en (42, 39). */
+.header {
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 50;
+  padding-top: 39px;
+}
+
+.bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1441px;
+  margin: 0 auto;
+  padding: 0 42px;
+}
+
+.logoLink {
+  display: block;
+  flex-shrink: 0;
+}
+
+.logo {
+  display: block;
+  width: 99.01px;
+  height: 30.36px;
+  object-fit: fill;
+}
+
+.nav {
+  display: flex;
+  gap: 47px;
+  align-items: center;
+}
+
+.navLink,
+.panelLink {
+  display: flex;
+  gap: 8px;
+  align-items: flex-end;
+  color: #003d4c;
+  font-family: var(--font-manrope), sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.5;
+  white-space: nowrap;
+  transition: color 0.2s ease;
+}
+
+.navLink:hover {
+  color: #0083af;
+}
+
+.demo,
+.panelDemo {
+  display: flex;
+  flex-shrink: 0;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 18px;
+  border: 1px solid #ebebeb;
+  border-radius: 100px;
+  background: #fefefe;
+  color: #003d4c;
+  font-family: var(--font-manrope), sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+/* Menú mobile */
+.toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  border: 1px solid #ebebeb;
+  border-radius: 100px;
+  background: #fefefe;
+  cursor: pointer;
+}
+
+.burger,
+.burgerOpen {
+  position: relative;
+  width: 18px;
+  height: 2px;
+  border-radius: 2px;
+  background: #003d4c;
+  transition: background-color 0.2s ease;
+}
+
+.burger::before,
+.burger::after,
+.burgerOpen::before,
+.burgerOpen::after {
+  position: absolute;
+  left: 0;
+  width: 18px;
+  height: 2px;
+  border-radius: 2px;
+  background: #003d4c;
+  content: "";
+  transition: transform 0.25s ease;
+}
+
+.burger::before {
+  transform: translateY(-6px);
+}
+
+.burger::after {
+  transform: translateY(6px);
+}
+
+.burgerOpen {
+  background: transparent;
+}
+
+.burgerOpen::before {
+  transform: rotate(45deg);
+}
+
+.burgerOpen::after {
+  transform: rotate(-45deg);
+}
+
+.panel,
+.panelOpen {
+  margin: 16px 16px 0;
+  padding: 24px;
+  border: 1px solid #ebebeb;
+  border-radius: 24px;
+  background: #fefefe;
+  box-shadow: 0 16px 40px rgba(0, 61, 76, 0.12);
+}
+
+.panelOpen {
+  animation: panel-in 0.2s ease;
+}
+
+.panelNav {
+  display: flex;
+  flex-direction: column;
+}
+
+.panelLink {
+  justify-content: space-between;
+  padding: 14px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.panelDemo {
+  margin-top: 20px;
+}
+
+@keyframes panel-in {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+}
+
+@media (max-width: 1240px) {
+  .nav {
+    gap: 28px;
+  }
+}
+
+@media (max-width: 1100px) {
+  .header {
+    padding-top: 24px;
+  }
+
+  .bar {
+    padding: 0 16px;
+  }
+
+  .nav,
+  .demo {
+    display: none;
+  }
+
+  .toggle {
+    display: flex;
+  }
+}
+
+@media (min-width: 1101px) {
+  .panel,
+  .panelOpen {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .panelOpen {
+    animation: none;
+  }
+}
