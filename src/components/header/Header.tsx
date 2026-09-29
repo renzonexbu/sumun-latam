@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 import styles from "./header.module.css";
@@ -15,6 +16,8 @@ const navItems = [
 
 export function Header() {
   const [open, setOpen] = useState(false);
+  // En Tutor IA el header va como píldora blanca sobre el hero oscuro.
+  const solid = usePathname() === "/tutor-ia";
 
   // Cierra el menú mobile con Escape y si la pantalla vuelve a ser ancha.
   useEffect(() => {
@@ -39,7 +42,7 @@ export function Header() {
   }, [open]);
 
   return (
-    <header className={styles.header}>
+    <header className={solid ? `${styles.header} ${styles.solid}` : styles.header}>
       <div className={styles.bar}>
         <Link href="/" className={styles.logoLink} aria-label="Sumun, inicio">
           {/* Logo de Figma remuestreado a su proporción final (99 × 30.4) a 3x para que se vea nítido. */}

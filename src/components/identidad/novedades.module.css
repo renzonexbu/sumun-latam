@@ -1,0 +1,286 @@
+.section {
+  position: relative;
+  overflow: hidden;
+  background: #fcfdfe;
+}
+
+/* Lienzo del frame de Figma (1439 × 1048). */
+.stage {
+  max-width: 1200px;
+  min-height: 1048px;
+  margin: 0 auto;
+  padding: 113px 0 0;
+  transform: translateX(0.5px);
+}
+
+.header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  max-width: 768px;
+}
+
+.eyebrow {
+  margin: 0;
+  color: #f15a2e;
+  font-family: var(--font-figtree), sans-serif;
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 30px;
+  text-box: trim-both cap alphabetic;
+}
+
+.title {
+  margin: -2px 0 0;
+  color: #003d4c;
+  font-family: var(--font-figtree), sans-serif;
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 49px;
+  text-box: trim-both cap alphabetic;
+}
+
+.lead {
+  max-width: 565px;
+  margin: 0;
+  color: #003d4c;
+  font-family: var(--font-manrope), sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.arrows {
+  display: flex;
+  flex-shrink: 0;
+  justify-content: space-between;
+  width: 127px;
+  margin-right: 8px;
+}
+
+.arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  border: 1px solid #eee;
+  border-radius: 50px;
+  background: #f15a2e;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.arrow:hover {
+  background: #d9481f;
+}
+
+.arrow:active {
+  transform: scale(0.94);
+}
+
+.arrow:focus-visible {
+  outline: 2px solid #0095cd;
+  outline-offset: 3px;
+}
+
+.arrowPrev {
+  transform: rotate(-90deg);
+}
+
+.arrowNext {
+  transform: rotate(90deg);
+}
+
+/* Carrusel */
+.viewport {
+  --card: 383px;
+  --gap: 20px;
+  --step: calc(var(--card) + var(--gap));
+
+  margin-top: 63px;
+  padding-left: 3px;
+  touch-action: pan-y;
+  user-select: none;
+}
+
+.track {
+  display: flex;
+  gap: var(--gap);
+  align-items: flex-start;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  transform: translateX(calc(var(--pos) * var(--step) * -1));
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.card,
+.cardDimmed {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  gap: 36px;
+  width: var(--card);
+  transition: opacity 0.6s ease;
+}
+
+.cardDimmed {
+  opacity: 0.32;
+}
+
+.media {
+  position: relative;
+  height: 350px;
+  overflow: hidden;
+  border: 1px solid #fff;
+  border-radius: 20px;
+  background: #fff;
+}
+
+.media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* Tarjeta con la foto original: mismo recorte y velo radial que en Figma. */
+.media img.aula {
+  top: -0.52%;
+  left: -77.57%;
+  width: 229.68%;
+  height: 154.88%;
+}
+
+.veil {
+  position: absolute;
+  top: -1px;
+  left: -1.33px;
+  width: 385px;
+  height: 382px;
+  background: radial-gradient(
+    340px 338px at 184px 169px,
+    rgba(217, 217, 217, 0) 40%,
+    rgba(240, 240, 240, 0.68) 69.4%,
+    #fbfbfb 100%
+  );
+  backdrop-filter: blur(2px);
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: flex-start;
+  padding: 0 40px 0 16px;
+  color: #003d4c;
+}
+
+.cardTitle {
+  margin: 0;
+  font-family: var(--font-manrope), sans-serif;
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 40px;
+  white-space: nowrap;
+  text-box: trim-both cap alphabetic;
+}
+
+.cardText {
+  margin: 0;
+  font-family: var(--font-manrope), sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.link {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  color: #0095cd;
+  font-family: var(--font-manrope), sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.link img {
+  transition: transform 0.2s ease;
+}
+
+.link:hover img {
+  transform: translateX(4px);
+}
+
+@media (max-width: 1280px) {
+  .stage {
+    min-height: 0;
+    padding: 96px 24px;
+    transform: none;
+  }
+
+  .viewport {
+    --card: min(383px, calc(100vw - 72px));
+
+    padding-left: 0;
+  }
+
+  /* En pantallas angostas no hay 3 visibles: solo se atenúa lo que queda fuera de pantalla. */
+  .cardDimmed {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 700px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .eyebrow {
+    font-size: 24px;
+  }
+
+  .title {
+    font-size: 36px;
+    line-height: 40px;
+  }
+
+  .lead {
+    font-size: 17px;
+  }
+
+  .viewport {
+    margin-top: 40px;
+  }
+
+  .media {
+    height: auto;
+    aspect-ratio: 383 / 350;
+  }
+
+  .cardText {
+    font-size: 17px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .track,
+  .card,
+  .cardDimmed {
+    transition: none;
+  }
+}

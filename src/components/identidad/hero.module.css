@@ -1,0 +1,117 @@
+/*
+ * Frame de 1440 × 740. --px = 1px de Figma para las imágenes, que escalan con el ancho.
+ * ponytail: alto del hero y posiciones medidas de la captura, confirmar con el nodo de Figma.
+ */
+.section {
+  --px: calc(100vw / 1440);
+  position: relative;
+  z-index: 1; /* el aro se monta sobre la sección de propósito */
+  min-height: calc(740 * var(--px));
+  padding: calc(284 * var(--px)) 0 calc(204 * var(--px)) calc(126 * var(--px));
+  border: 1px solid #e2e2e2;
+  background: #f2f5fc;
+}
+
+.texts {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  color: #003d4c;
+}
+
+.title {
+  width: min(523px, 100%);
+  margin: 0;
+  font-family: var(--font-figtree), sans-serif;
+  font-size: 54px;
+  font-weight: 600;
+  line-height: 54px;
+}
+
+.lead {
+  width: min(446px, 100%);
+  margin: 0;
+  font-family: var(--font-manrope), sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0.01em;
+}
+
+.senora,
+.aro {
+  position: absolute;
+  max-width: none;
+  height: auto;
+  pointer-events: none;
+}
+
+/* Foto apoyada en el borde inferior del hero. */
+.senora {
+  bottom: 0;
+  left: calc(644 * var(--px));
+  width: calc(939 * var(--px));
+}
+
+/* Aro: 1082px de ancho; baja 264px por debajo del hero. */
+.aro {
+  bottom: calc(-264 * var(--px));
+  left: calc(509 * var(--px));
+  width: calc(1082 * var(--px));
+}
+
+/* Entrada: la rueda llega rodando desde la derecha y luego aparece la señora. */
+@keyframes rodarDesdeDerecha {
+  from {
+    opacity: 0;
+    transform: translateX(60vw) rotate(140deg);
+  }
+}
+
+@keyframes aparecerSenora {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+}
+
+.aro {
+  animation: rodarDesdeDerecha 1.3s cubic-bezier(0.22, 1, 0.36, 1) 0.2s both;
+}
+
+.senora {
+  transform-origin: 50% 100%;
+  animation: aparecerSenora 0.9s ease-out 1.2s both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aro,
+  .senora {
+    animation: none;
+  }
+}
+
+/* Sin diseño mobile aún: texto arriba e imágenes debajo. */
+@media (max-width: 900px) {
+  .section {
+    padding: 140px 24px 70vw;
+  }
+
+  .title {
+    font-size: 38px;
+    line-height: 1.1;
+  }
+
+  .senora {
+    left: 10vw;
+    width: 90vw;
+  }
+
+  .aro {
+    left: 0;
+    width: 100vw;
+    bottom: -20vw;
+  }
+}

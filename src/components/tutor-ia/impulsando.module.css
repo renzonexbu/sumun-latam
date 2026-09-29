@@ -1,0 +1,229 @@
+.section {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(119deg, #fff 0%, #fff5f0 30%, #ffe5d4 70%, #ffdcc4 100%);
+}
+
+/* Lienzo del frame de Figma (1448 × 991). */
+.stage {
+  position: relative;
+  max-width: 1448px;
+  min-height: 991px;
+  margin: 0 auto;
+  padding-top: 119px;
+}
+
+.intro {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 27px;
+  align-items: center;
+  width: min(1072px, calc(100% - 48px));
+  margin: 0 auto;
+  color: #004656;
+  text-align: center;
+  transform: translateX(11px);
+}
+
+.eyebrow {
+  margin: 0;
+  font-family: var(--font-manrope), sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 26px;
+  text-box: trim-both cap alphabetic;
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-figtree), sans-serif;
+  font-size: 50px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.accent {
+  color: #ff6f00;
+}
+
+.lead {
+  max-width: 965px;
+  margin: 0;
+  font-family: var(--font-manrope), sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.mockup {
+  position: relative;
+  width: min(1039px, calc(100% - 48px));
+  height: 505.89px;
+  margin: 39px auto 0;
+  overflow: hidden;
+  border-radius: 10.54px;
+  background: #feffff;
+  box-shadow: 0 0 14.05px 0 rgba(0, 0, 0, 0.1);
+  transform: translateX(10.5px);
+}
+
+.mockupImage {
+  position: absolute;
+  top: 22.84px;
+  left: 6.17%;
+  width: 90.19%;
+  aspect-ratio: 937.12 / 624.45;
+  overflow: hidden;
+}
+
+.mockupImage img {
+  position: absolute;
+  top: -3.66%;
+  left: 0;
+  width: 100%;
+  max-width: none;
+  height: 103.69%;
+}
+
+.veil {
+  position: absolute;
+  inset: 0;
+  background: rgba(247, 247, 247, 0.4);
+  backdrop-filter: blur(1.757px);
+}
+
+.demo {
+  position: absolute;
+  top: calc(50% + 0.37px);
+  left: calc(50% + 0.38px);
+  display: flex;
+  gap: 6.49px;
+  align-items: center;
+  justify-content: center;
+  padding: 11.35px 19.46px;
+  border: 0.878px solid #fefefe;
+  border-radius: 81.09px;
+  background: #f15a2e;
+  color: #fefefe;
+  font-family: var(--font-manrope), sans-serif;
+  font-size: 14.6px;
+  font-weight: 700;
+  line-height: 1.5;
+  white-space: nowrap;
+  transform: translate(-50%, -50%);
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.demo img {
+  width: 19.46px;
+  height: 19.46px;
+  padding: 2.43px;
+}
+
+.demo:hover {
+  background: #d9481f;
+  transform: translate(-50%, -50%) scale(1.04);
+}
+
+/* Formas 3D naranjas: se ajustan con contain alineadas abajo, como en Figma. */
+.forma {
+  position: absolute;
+  pointer-events: none;
+}
+
+.forma img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  object-fit: contain;
+  object-position: bottom;
+}
+
+/* Su PNG ocupa solo el 67% izquierdo del lienzo: posición ajustada a la captura de Figma. */
+.formaIzq {
+  top: -79px;
+  left: -15.5%;
+  width: 81.42%;
+  aspect-ratio: 1179 / 810;
+}
+
+.formaDer {
+  top: -92px;
+  left: 55.11%;
+  width: 77.21%;
+  aspect-ratio: 1118 / 810;
+}
+
+/* Al llegar a la sección se abren hacia los costados (misma apertura que la home). */
+.formaIzq,
+.formaDer {
+  transition: transform 1.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.section[data-revealed] .formaIzq {
+  transform: translate(-38%, 12%) rotate(-6deg);
+}
+
+.section[data-revealed] .formaDer {
+  transform: translate(40%, -14%) rotate(6deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .formaIzq,
+  .formaDer {
+    transition: none;
+  }
+}
+
+@media (max-width: 1100px) {
+  .stage {
+    min-height: 0;
+    padding: 96px 0;
+  }
+
+  .intro,
+  .mockup {
+    transform: none;
+  }
+
+  .title {
+    font-size: 38px;
+  }
+
+  .lead {
+    font-size: 16px;
+  }
+
+  .mockup {
+    height: auto;
+    aspect-ratio: 1039 / 505.89;
+  }
+
+
+  .formaDer {
+    top: -40px;
+    left: 62%;
+    width: 80%;
+  }
+}
+
+@media (max-width: 600px) {
+  .title {
+    font-size: 32px;
+  }
+
+  .mockup {
+    aspect-ratio: 4 / 3;
+  }
+
+  .mockupImage {
+    top: 12px;
+    left: 3%;
+    width: 94%;
+  }
+}
