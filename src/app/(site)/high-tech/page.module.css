@@ -1,0 +1,10 @@
+/* El hero mide 807 y el título de este bloque está en y 894 (87px debajo). */
+.habilidades {
+  padding-top: 87px;
+}
+
+@media (max-width: 1100px) {
+  .habilidades {
+    padding-top: 80px;
+  }
+}

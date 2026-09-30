@@ -85,7 +85,7 @@ export function NovedadesSection() {
   }
 
   return (
-    <section className={styles.section} aria-labelledby="novedades-title">
+    <section id="novedades" className={styles.section} aria-labelledby="novedades-title">
       <div className={styles.stage}>
         <div className={styles.header}>
           <div className={styles.intro}>
@@ -132,6 +132,7 @@ export function NovedadesSection() {
 
         <div
           className={styles.viewport}
+          data-no-reveal
           role="region"
           aria-roledescription="carrusel"
           aria-label="Novedades"

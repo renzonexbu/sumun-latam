@@ -1,0 +1,134 @@
+/* Franja de la frase: 1443 × 655 (y = 1663 del frame de Figma). */
+.section {
+  position: relative;
+  height: 655px;
+  overflow: hidden;
+}
+
+.fondo,
+.onda {
+  position: absolute;
+  left: 50%;
+  width: 1443px;
+  pointer-events: none;
+  transform: translateX(-50%);
+}
+
+.fondo {
+  top: -194px;
+  height: 963px;
+  opacity: 0.4;
+}
+
+.onda {
+  top: 0;
+  height: 655px;
+}
+
+.fondo img,
+.onda img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Fundido desde el fondo de la página (Rectangle 210 en Figma). */
+.fadeTop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 200px;
+  background: linear-gradient(180deg, #fbfbfb 27.5%, rgba(251, 251, 251, 0) 98.8%);
+  pointer-events: none;
+}
+
+.stage {
+  position: relative;
+  max-width: 1443px;
+  height: 100%;
+  margin: 0 auto;
+}
+
+.frase {
+  position: absolute;
+  top: 227px;
+  left: 50%;
+  z-index: 1;
+  width: 800px;
+  margin: 0;
+  color: #2e2e2e;
+  font-family: var(--font-figtree), sans-serif;
+  font-size: 35px;
+  font-weight: 600;
+  line-height: 37px;
+  text-align: center;
+  transform: translateX(calc(-50% + 0.5px));
+  text-box: trim-both cap alphabetic;
+}
+
+.burbuja,
+.icono {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.burbuja {
+  overflow: hidden;
+}
+
+.burbujaFoto {
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+  background: #fff;
+}
+
+.burbujaFoto img,
+.aro {
+  position: absolute;
+  max-width: none;
+}
+
+.burbujaFoto img {
+  object-fit: cover;
+}
+
+.aro {
+  inset: 0;
+}
+
+.icono {
+  overflow: hidden;
+}
+
+.iconoFondo {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 1100px) {
+  .section {
+    height: 520px;
+  }
+
+  .frase {
+    top: 160px;
+    width: calc(100% - 48px);
+    font-size: 24px;
+    line-height: 29px;
+  }
+
+  /* En mobile las burbujas tapan la frase: se ocultan. */
+  .burbuja,
+  .icono {
+    display: none;
+  }
+
+  .frase {
+    top: 120px;
+  }
+}

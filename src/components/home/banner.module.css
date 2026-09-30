@@ -87,7 +87,11 @@
   left: -6.86%;
   width: 113.73%;
   height: 113.62%;
-  overflow: hidden;
+  /*
+   * Como en Figma, el banner (764px) recorta este anillo: se corta en y = 764
+   * ((911 - 764) / 776 = 18.94%). Lo que sobresale abajo es el tramo delantero (.anilloFrente).
+   */
+  clip-path: inset(0 0 18.94% 0);
 }
 
 .fondo img {
@@ -128,6 +132,38 @@
   bottom: 21.23%;
   left: 5.07%;
   background: linear-gradient(180deg, rgba(218, 245, 254, 0) 0%, #daf5fe 100%);
+  /* Sin esto los bordes laterales del degradado se ven como un rectángulo. */
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 22%, #000 78%, transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0%, #000 22%, #000 78%, transparent 100%);
+}
+
+/* 1088 × 335 en (564.8, 600) del frame; recortado con la máscara vectorial de Figma. */
+.anilloFrente {
+  position: absolute;
+  top: 600px;
+  left: 39.25%;
+  z-index: 2;
+  width: 75.61%;
+  aspect-ratio: 1088 / 335;
+  overflow: hidden;
+  pointer-events: none;
+  -webkit-mask-image: url("/images/banner/anillo-frente-mask.svg");
+  mask-image: url("/images/banner/anillo-frente-mask.svg");
+  -webkit-mask-position: -10.766px 3px;
+  mask-position: -10.766px 3px;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 1069.766px 353px;
+  mask-size: 1069.766px 353px;
+}
+
+.anilloFrente img {
+  position: absolute;
+  top: -139.85%;
+  left: 0;
+  width: 99.13%;
+  max-width: none;
+  height: 239.01%;
 }
 
 .dotCyan {
@@ -295,8 +331,14 @@
   }
 
   .decor,
-  .dotCyan {
+  .dotCyan,
+  .anilloFrente {
     display: none;
+  }
+
+  /* En mobile el visual ya se recorta entero (.visual): el anillo va completo. */
+  .fondo {
+    clip-path: none;
   }
 
   .visual {

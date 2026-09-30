@@ -1,0 +1,194 @@
+/* Frame "El paso a paso": 1439 × 868 en y = 4495. */
+.section {
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, #fbfbfb 0%, #fbfbfb 23.45%, rgba(251, 251, 251, 0) 100%),
+    #e2edf7;
+}
+
+.stage {
+  position: relative;
+  max-width: 1439px;
+  height: 868px;
+  margin: 0 auto;
+  padding-top: 139px;
+  box-sizing: border-box;
+}
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+  text-align: center;
+}
+
+.title {
+  max-width: 1252px;
+  margin: 0;
+  color: #003d4c;
+  font-family: var(--font-figtree), sans-serif;
+  font-size: 54px;
+  font-weight: 600;
+  line-height: 58px;
+  text-box: trim-both cap alphabetic;
+}
+
+.accent {
+  background: linear-gradient(90deg, #036f94 46.77%, #008fb2 61.21%, #036f94 75.66%);
+  background-clip: text;
+  color: transparent;
+  /* El degradado de Figma se calcula sobre todo el título: se amplía para que coincida. */
+  background-size: 250% 100%;
+  background-position: 100% 0;
+}
+
+.lead {
+  max-width: 856px;
+  margin: 0;
+  color: #585858;
+  font-family: var(--font-manrope), sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 26px;
+  text-box: trim-both cap alphabetic;
+}
+
+.recorrido {
+  position: relative;
+  height: 423px;
+  /* 80px de gap + la caja fija de 26px que Figma le da al subtítulo. */
+  margin-top: 100px;
+}
+
+.ola {
+  position: absolute;
+  top: -266px;
+  left: -258px;
+  width: 2107px;
+  height: 1139px;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.ola img {
+  position: absolute;
+  top: 6.89%;
+  left: 10.4%;
+  width: 102.28%;
+  max-width: none;
+  height: 102.28%;
+}
+
+.pasos {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Tarjeta de vidrio "Cuadrante" (242 × 278). */
+.paso {
+  position: absolute;
+  box-sizing: border-box;
+  width: 242px;
+  height: 278px;
+  padding: 24px 18px;
+  overflow: hidden;
+  border-radius: 40px;
+  background: rgba(255, 255, 255, 0.18);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.45),
+    0 12px 40px rgba(0, 61, 76, 0.06);
+  backdrop-filter: blur(22px);
+}
+
+.numero {
+  position: absolute;
+  top: 24px;
+  left: calc(18px + 77px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.8);
+  color: #003d4c;
+  font-family: var(--font-figtree), sans-serif;
+  font-size: 35px;
+  font-weight: 600;
+  line-height: 37px;
+}
+
+.texto {
+  position: absolute;
+  top: calc(24px + 78px);
+  left: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 206px;
+  height: 152px;
+  margin: 0;
+  padding: 16px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.75);
+  color: #003d4c;
+  font-family: var(--font-manrope), sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 24px;
+  text-align: center;
+}
+
+@media (max-width: 1440px) {
+  .recorrido {
+    zoom: 0.92;
+  }
+}
+
+@media (max-width: 1100px) {
+  .stage {
+    height: auto;
+    padding: 80px 16px;
+  }
+
+  .title {
+    font-size: 36px;
+    line-height: 40px;
+  }
+
+  .lead {
+    font-size: 17px;
+    line-height: 23px;
+  }
+
+  .recorrido {
+    height: auto;
+    margin-top: 40px;
+    zoom: 1;
+  }
+
+  .ola {
+    top: 0;
+    left: -80%;
+    width: 260%;
+    height: 100%;
+  }
+
+  .pasos {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+  }
+
+  .paso {
+    position: relative;
+    top: auto !important;
+    left: auto !important;
+  }
+}

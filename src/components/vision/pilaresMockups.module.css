@@ -1,0 +1,506 @@
+/* Todas las posiciones son las del componente "Pestañas Pilares" de Figma. */
+
+.highTech,
+.curricular {
+  position: relative;
+  overflow: hidden;
+  font-family: var(--font-manrope), sans-serif;
+}
+
+.highTech img,
+.curricular img {
+  position: absolute;
+  max-width: none;
+}
+
+/* ---------- High Tech ---------- */
+
+.highTech {
+  width: 507px;
+  height: 602px;
+  border-bottom-right-radius: 52px;
+}
+
+.htPhone {
+  position: absolute;
+  top: 43px;
+  left: 111px;
+  width: 309px;
+  height: 586px;
+  border: 1px solid #eaeaea;
+  border-radius: 66.683px;
+  background: linear-gradient(
+    180deg,
+    #fff 23.924%,
+    rgba(246, 246, 251, 0.73) 86.461%,
+    #d2edff 135.55%
+  );
+}
+
+.htNotch {
+  position: absolute;
+  top: 59.71px;
+  left: 211.27px;
+  width: 108.035px;
+  height: 29.444px;
+  border-radius: 30px;
+  background: #000;
+}
+
+.htLabel {
+  position: absolute;
+  top: 119px;
+  left: 172px;
+  margin: 0;
+  color: #003d4c;
+  font-family: var(--font-figtree), sans-serif;
+  font-size: 15.864px;
+  font-weight: 600;
+  line-height: 15.864px;
+  white-space: nowrap;
+  opacity: 0.85;
+  text-box: trim-both cap alphabetic;
+}
+
+.scan {
+  position: absolute;
+  top: 216px;
+  left: 141.06px;
+  width: 248px;
+  height: 234px;
+  overflow: hidden;
+}
+
+.scanImage {
+  position: absolute;
+  top: -0.28px;
+  left: -0.07px;
+  width: 248.126px;
+  height: 350.961px;
+  overflow: hidden;
+  border: 1px solid #f15a2e;
+  border-radius: 14.152px;
+}
+
+.scanImage img {
+  top: -2.09%;
+  left: -1.61%;
+  width: 103.85%;
+  height: 102.73%;
+}
+
+.scanGlow {
+  position: absolute;
+  inset: -0.5px;
+  border-radius: inherit;
+  box-shadow:
+    inset 4.717px -4.717px 16.699px 3.774px rgba(218, 245, 254, 0.91),
+    inset -11.321px 14.152px 21.794px -11.321px #ff3d05;
+}
+
+.punto {
+  width: 7px;
+  height: 7px;
+}
+
+.scanReflejo {
+  position: absolute;
+  top: 455px;
+  left: 141px;
+  width: 248px;
+  height: 111px;
+  overflow: hidden;
+  opacity: 0.5;
+}
+
+.scanReflejoImage {
+  position: absolute;
+  top: -239.85px;
+  left: -0.01px;
+  width: 248.126px;
+  height: 350.961px;
+  overflow: hidden;
+  border: 1px solid #f15a2e;
+  border-radius: 14.152px;
+}
+
+.scanReflejoImage img {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-position: bottom;
+  opacity: 0.4;
+}
+
+.lineas {
+  top: 341.4px;
+  left: 61.4px;
+}
+
+.htBlanco {
+  position: absolute;
+  top: 566px;
+  left: 44px;
+  width: 430px;
+  height: 114px;
+  background: #fff;
+}
+
+.botonEscaner {
+  top: 400.78px;
+  left: 224.08px;
+}
+
+.htFade {
+  position: absolute;
+  top: 455px;
+  left: 44px;
+  width: 430px;
+  height: 111px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #fff 100%);
+}
+
+.stats {
+  position: absolute;
+  top: 152px;
+  left: 50px;
+  width: 418px;
+  height: 128px;
+  overflow: hidden;
+  border: 1px solid #fff;
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 4px 22.4px 0 #e7e7e7;
+  color: #0083af;
+}
+
+.statNum {
+  position: absolute;
+  font-family: var(--font-figtree), sans-serif;
+  font-size: 22.072px;
+  font-weight: 600;
+  line-height: 23.333px;
+  white-space: nowrap;
+  transform: translateY(-50%);
+  text-box: trim-both cap alphabetic;
+}
+
+.statLabel {
+  position: absolute;
+  font-size: 8.594px;
+  font-weight: 700;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+/* Los iconos se posicionan por su centro. */
+.statIcon {
+  transform: translate(-50%, -50%);
+}
+
+.anilloResultado {
+  top: 102.51px;
+  left: 30.79px;
+}
+
+.anilloBorde {
+  position: absolute;
+  top: 130.216px;
+  left: 64.216px;
+  width: 170.568px;
+  height: 170.568px;
+  transform: rotate(150deg);
+}
+
+.anilloBorde img {
+  top: -27.21px;
+  left: -33.53px;
+}
+
+.resultado {
+  position: absolute;
+  top: 163.62px;
+  left: 97.45px;
+  width: 103.772px;
+  height: 103.772px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 6.326px 28.608px 0 rgba(235, 250, 255, 0.6);
+  color: #0095cd;
+}
+
+.resultadoNum {
+  position: absolute;
+  top: 51.29px;
+  left: 28.09px;
+  font-family: var(--font-figtree), sans-serif;
+  font-size: 24.291px;
+  font-weight: 600;
+  line-height: 25.68px;
+  white-space: nowrap;
+  transform: translateY(-50%);
+  text-box: trim-both cap alphabetic;
+}
+
+.resultadoLabel {
+  position: absolute;
+  top: 63.05px;
+  left: 28.12px;
+  font-size: 9.458px;
+  font-weight: 700;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+/* ---------- Inteligencia curricular ---------- */
+
+.curricular {
+  width: 472px;
+  height: 561px;
+}
+
+.icPhone {
+  position: absolute;
+  top: 0;
+  left: 91px;
+  width: 309px;
+  height: 523px;
+  border: 1px solid #eaeaea;
+  border-radius: 66.683px;
+  background: linear-gradient(
+    180deg,
+    #fff 0%,
+    rgba(246, 246, 251, 0.73) 49.696%,
+    #d2edff 135.55%
+  );
+  opacity: 0.56;
+}
+
+.icNotch {
+  position: absolute;
+  top: 16.71px;
+  left: 191.27px;
+  width: 108.035px;
+  height: 29.444px;
+  border-radius: 30px;
+  background: #003d4c;
+}
+
+.icName,
+.icId {
+  position: absolute;
+  left: 206px;
+  margin: 0;
+  color: #003d4c;
+  font-size: 15.771px;
+  line-height: 18.639px;
+  white-space: nowrap;
+  transform: translateY(-50%);
+  text-box: trim-both cap alphabetic;
+}
+
+.icName {
+  top: 94.5px;
+  font-weight: 800;
+}
+
+.icId {
+  top: 114.39px;
+  font-weight: 700;
+}
+
+.icFadeTop {
+  position: absolute;
+  top: 409px;
+  left: 24px;
+  width: 430px;
+  height: 114px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #fff 100%);
+}
+
+.avatar {
+  position: absolute;
+  top: 57px;
+  left: 60px;
+  width: 126px;
+  height: 126px;
+  overflow: hidden;
+  border: 0.875px solid rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 5.25px 5.25px 21px 0 rgba(0, 0, 0, 0.1);
+}
+
+.avatar img {
+  top: 50%;
+  left: 50%;
+  width: 112.737px;
+  height: 112.737px;
+  border-radius: 50%;
+  object-fit: cover;
+  transform: translate(-50%, -50%);
+}
+
+.icTabs {
+  position: absolute;
+  top: 138px;
+  left: 206px;
+  width: 194px;
+  height: 22px;
+  overflow: hidden;
+  color: #0095cd;
+  font-size: 11.487px;
+  font-weight: 700;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+.icTabs span {
+  position: absolute;
+  top: 2.5px;
+}
+
+.anilloAsistencia {
+  position: absolute;
+  top: 198.867px;
+  left: 1.867px;
+  width: 245.156px;
+  height: 245.156px;
+  transform: rotate(150deg);
+}
+
+.anilloAsistencia img {
+  top: -34.91px;
+  left: -43.05px;
+}
+
+.sombraAsistencia {
+  position: absolute;
+  top: calc(318.6px - 68.749px);
+  left: calc(120.94px - 72.815px);
+  width: 145.63px;
+  height: 137.498px;
+  border-radius: 45.244px;
+  background: #fff;
+  filter: blur(10.587px);
+  transform: rotate(150deg);
+}
+
+.asistencia {
+  position: absolute;
+  top: 252.96px;
+  left: 56.73px;
+  width: 133.214px;
+  height: 133.214px;
+  border-radius: 50%;
+  background: #fff;
+  color: #0095cd;
+  filter: drop-shadow(0 8.121px 18.362px rgba(235, 250, 255, 0.6));
+}
+
+.asistenciaNum {
+  position: absolute;
+  top: 61.07px;
+  left: 23.47px;
+  font-family: var(--font-figtree), sans-serif;
+  font-size: 31.183px;
+  font-weight: 600;
+  line-height: 32.965px;
+  white-space: nowrap;
+  transform: translateY(-50%);
+  text-box: trim-both cap alphabetic;
+}
+
+.asistenciaLabel {
+  position: absolute;
+  top: 80.94px;
+  left: 36.1px;
+  font-size: 12.141px;
+  font-weight: 700;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+.materias {
+  position: absolute;
+  top: 207px;
+  left: 206px;
+  width: 194px;
+  height: 260px;
+  overflow: hidden;
+}
+
+.materia {
+  position: absolute;
+  left: 0;
+  width: 215px;
+  height: 79px;
+  overflow: hidden;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.materiaPct,
+.materiaName {
+  position: absolute;
+  color: #0095cd;
+  font-size: 15.732px;
+  font-weight: 700;
+  line-height: 31.463px;
+  white-space: nowrap;
+  text-box: trim-both cap alphabetic;
+}
+
+.materiaPct {
+  top: 25px;
+}
+
+.materiaName {
+  top: 43.76px;
+}
+
+.tile {
+  position: absolute;
+  box-shadow:
+    inset 3.65px 7.3px 7.3px 0 rgba(233, 233, 233, 0.25),
+    inset -4.38px -5.84px 7.3px 0 rgba(248, 248, 248, 0.25);
+}
+
+.tileBook {
+  top: 13px;
+  left: 11px;
+  width: 53px;
+  height: 53.869px;
+  border: 0.731px solid #89d5f1;
+  border-radius: 15.639px;
+  background: #89d5f1;
+}
+
+.tileAtom {
+  top: 12.77px;
+  left: 11px;
+  width: 54px;
+  height: 54.885px;
+  border: 0.744px solid #00afa5;
+  border-radius: 15.934px;
+  background: #00afa5;
+}
+
+.tileMath {
+  top: 12px;
+  left: 10px;
+  width: 55px;
+  height: 55.902px;
+  border: 0.758px solid #ff6f00;
+  border-radius: 16.23px;
+  background: #ff6f00;
+}
+
+.icFadeBottom {
+  position: absolute;
+  top: 392px;
+  left: 11px;
+  width: 430px;
+  height: 131px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #fff 100%);
+}

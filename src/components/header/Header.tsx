@@ -1,46 +1,122 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
+import { useEffect, useRef, useState } from "react";
 
 import styles from "./header.module.css";
 
-const navItems = [
-  { label: "Visión del producto", href: "#", hasMenu: true },
-  { label: "Conversaciones Sumun", href: "#", hasMenu: true },
-  { label: "Nosotros", href: "#", hasMenu: true },
-  { label: "Recursos", href: "#", hasMenu: true },
-  { label: "Noticias", href: "#", hasMenu: false },
+type SubItem = { label: string; href: string; description?: string };
+type NavItem = { label: string; href: string; items?: SubItem[] };
+
+// Las secciones sin página propia llevan a su bloque del home (ancla).
+const navItems: NavItem[] = [
+  {
+    label: "Visión del producto",
+    href: "/vision-general",
+    items: [
+      { label: "Visión general", href: "/vision-general", description: "Nuestro sistema educativo" },
+      { label: "High Tech", href: "/high-tech", description: "IA y datos al servicio del aprendizaje" },
+      { label: "Inteligencia curricular", href: "/inteligencia-curricular", description: "Micro y macrohabilidades" },
+      { label: "Cultura de alto desempeño", href: "/cultura-de-alto-desempeno", description: "Mucho más que solo ambiente" },
+    ],
+  },
+  {
+    label: "Conversaciones Sumun",
+    href: "/#conversaciones",
+    items: [
+      { label: "Serie documental", href: "/#serie", description: "La génesis de Sumun" },
+      { label: "Conversaciones", href: "/#conversaciones", description: "Voces que inspiran nuevos caminos" },
+    ],
+  },
+  {
+    label: "Nosotros",
+    href: "/#equipo",
+    items: [
+      { label: "Nuestro equipo", href: "/#equipo", description: "Ellos lo hacen posible" },
+      { label: "Compromiso con la comunidad", href: "/#compromiso" },
+      { label: "Nuestros aliados", href: "/#aliados" },
+    ],
+  },
+  {
+    label: "Recursos",
+    href: "/#tutor-ia",
+    items: [
+      { label: "Tutor IA", href: "/#tutor-ia", description: "Aprendizaje personalizado 24/7" },
+    ],
+  },
+  { label: "Noticias", href: "/#novedades" },
 ];
+
+// Páginas con hero oscuro: el header va en una píldora blanca (variante de Figma).
+const PILL_ROUTES = ["/vision-general", "/inteligencia-curricular", "/cultura-de-alto-desempeno", "/high-tech"];
+
+function isActive(item: NavItem, pathname: string) {
+  return item.items ? item.items.some((sub) => sub.href === pathname) : item.href === pathname;
+}
 
 export function Header() {
   const [open, setOpen] = useState(false);
+  const [menu, setMenu] = useState<string | null>(null);
+  const [mobileSub, setMobileSub] = useState<string | null>(null);
+  const closeTimer = useRef<number | undefined>(undefined);
+  const pathname = usePathname();
+  const pill = PILL_ROUTES.includes(pathname);
+  const [scrolled, setScrolled] = useState(false);
 
-  // Cierra el menú mobile con Escape y si la pantalla vuelve a ser ancha.
+  // Al bajar, el header queda fijo y pasa a una píldora de vidrio compacta.
   useEffect(() => {
-    if (!open) {
-      return;
-    }
+    const onScroll = () => setScrolled(window.scrollY > 40);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
+  // Al cambiar de página se cierran los menús (ajuste de estado durante el render, sin efecto).
+  const [lastPath, setLastPath] = useState(pathname);
+  if (lastPath !== pathname) {
+    setLastPath(pathname);
+    setMenu(null);
+    setOpen(false);
+  }
+
+  // Escape cierra todo; el panel mobile también se cierra si la pantalla vuelve a ser ancha.
+  useEffect(() => {
     const media = window.matchMedia("(min-width: 1101px)");
-    const close = () => setOpen(false);
+    const closeAll = () => {
+      setOpen(false);
+      setMenu(null);
+    };
     const onKey = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
-        close();
+        closeAll();
       }
     };
 
     window.addEventListener("keydown", onKey);
-    media.addEventListener("change", close);
+    media.addEventListener("change", closeAll);
     return () => {
       window.removeEventListener("keydown", onKey);
-      media.removeEventListener("change", close);
+      media.removeEventListener("change", closeAll);
     };
-  }, [open]);
+  }, []);
+
+  // Pequeña demora al cerrar para que el mouse pueda pasar del link al panel.
+  const openMenu = (label: string) => {
+    window.clearTimeout(closeTimer.current);
+    setMenu(label);
+  };
+  const scheduleClose = () => {
+    window.clearTimeout(closeTimer.current);
+    closeTimer.current = window.setTimeout(() => setMenu(null), 160);
+  };
 
   return (
-    <header className={styles.header}>
-      <div className={styles.bar}>
+    <header
+      className={scrolled ? `${styles.header} ${styles.headerScrolled}` : styles.header}
+      style={{ viewTransitionName: "site-header" }}
+    >
+      <div className={pill || scrolled ? `${styles.bar} ${styles.barPill}` : styles.bar}>
         <Link href="/" className={styles.logoLink} aria-label="Sumun, inicio">
           {/* Logo de Figma remuestreado a su proporción final (99 × 30.4) a 3x para que se vea nítido. */}
           <img
@@ -53,25 +129,79 @@ export function Header() {
         </Link>
 
         <nav aria-label="Principal" className={styles.nav}>
-          {navItems.map((item) => (
-            <a key={item.label} href={item.href} className={styles.navLink}>
-              {item.label}
-              {item.hasMenu ? (
-                <img
-                  src="/images/header/chevron-down.svg"
-                  alt=""
-                  width={24}
-                  height={24}
-                />
-              ) : null}
-            </a>
-          ))}
+          {navItems.map((item) => {
+            const active = isActive(item, pathname);
+            const linkClass = active ? `${styles.navLink} ${styles.navLinkActive}` : styles.navLink;
+
+            if (!item.items) {
+              return (
+                <Link key={item.label} href={item.href} className={linkClass}>
+                  {item.label}
+                </Link>
+              );
+            }
+
+            const expanded = menu === item.label;
+            const panelId = `submenu-${item.label.replace(/\s+/g, "-").toLowerCase()}`;
+
+            return (
+              <div
+                key={item.label}
+                className={styles.navItem}
+                onMouseEnter={() => openMenu(item.label)}
+                onMouseLeave={scheduleClose}
+                onFocus={() => openMenu(item.label)}
+                onBlur={(event) => {
+                  if (!event.currentTarget.contains(event.relatedTarget as Node)) {
+                    scheduleClose();
+                  }
+                }}
+              >
+                <button
+                  type="button"
+                  className={linkClass}
+                  aria-expanded={expanded}
+                  aria-controls={panelId}
+                  onClick={() => setMenu(expanded ? null : item.label)}
+                >
+                  {item.label}
+                  <img
+                    className={expanded ? styles.chevronOpen : undefined}
+                    src="/images/header/chevron-down.svg"
+                    alt=""
+                    width={24}
+                    height={24}
+                  />
+                </button>
+
+                <div id={panelId} className={expanded ? `${styles.dropdown} ${styles.dropdownOpen}` : styles.dropdown}>
+                  <ul className={styles.dropdownList}>
+                    {item.items.map((sub) => (
+                      <li key={sub.label}>
+                        <Link
+                          href={sub.href}
+                          className={sub.href === pathname ? `${styles.dropdownLink} ${styles.dropdownLinkActive}` : styles.dropdownLink}
+                          tabIndex={expanded ? 0 : -1}
+                          onClick={() => setMenu(null)}
+                        >
+                          <span className={styles.dropdownLabel}>{sub.label}</span>
+                          {sub.description ? (
+                            <span className={styles.dropdownDesc}>{sub.description}</span>
+                          ) : null}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            );
+          })}
         </nav>
 
-        <a href="#" className={`btn ${styles.demo}`}>
+        <Link href="/#tutor-ia" className={`btn ${styles.demo}`}>
           Demo IA
           <img src="/images/header/ai.svg" alt="" width={24} height={24} />
-        </a>
+        </Link>
 
         <button
           type="button"
@@ -91,33 +221,54 @@ export function Header() {
         hidden={!open}
       >
         <nav aria-label="Principal (mobile)" className={styles.panelNav}>
-          {navItems.map((item) => (
-            <a
-              key={item.label}
-              href={item.href}
-              className={styles.panelLink}
-              onClick={() => setOpen(false)}
-            >
-              {item.label}
-              {item.hasMenu ? (
-                <img
-                  src="/images/header/chevron-down.svg"
-                  alt=""
-                  width={24}
-                  height={24}
-                />
-              ) : null}
-            </a>
-          ))}
+          {navItems.map((item) => {
+            if (!item.items) {
+              return (
+                <Link key={item.label} href={item.href} className={styles.panelLink} onClick={() => setOpen(false)}>
+                  {item.label}
+                </Link>
+              );
+            }
+
+            const expanded = mobileSub === item.label;
+            return (
+              <div key={item.label}>
+                <button
+                  type="button"
+                  className={styles.panelLink}
+                  aria-expanded={expanded}
+                  onClick={() => setMobileSub(expanded ? null : item.label)}
+                >
+                  {item.label}
+                  <img
+                    className={expanded ? styles.chevronOpen : undefined}
+                    src="/images/header/chevron-down.svg"
+                    alt=""
+                    width={24}
+                    height={24}
+                  />
+                </button>
+                <ul className={expanded ? `${styles.panelSub} ${styles.panelSubOpen}` : styles.panelSub} hidden={!expanded}>
+                  {item.items.map((sub) => (
+                    <li key={sub.label}>
+                      <Link
+                        href={sub.href}
+                        className={sub.href === pathname ? `${styles.panelSubLink} ${styles.dropdownLinkActive}` : styles.panelSubLink}
+                        onClick={() => setOpen(false)}
+                      >
+                        {sub.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            );
+          })}
         </nav>
-        <a
-          href="#"
-          className={`btn ${styles.panelDemo}`}
-          onClick={() => setOpen(false)}
-        >
+        <Link href="/#tutor-ia" className={`btn ${styles.panelDemo}`} onClick={() => setOpen(false)}>
           Demo IA
           <img src="/images/header/ai.svg" alt="" width={24} height={24} />
-        </a>
+        </Link>
       </div>
     </header>
   );

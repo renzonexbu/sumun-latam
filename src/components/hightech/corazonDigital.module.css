@@ -1,0 +1,282 @@
+/* "Corazón digital Sumun": 1426 × 1092 en y 2581; contenedor de 1366 × 992 en (37, 73). */
+.section {
+  position: relative;
+  max-width: 1426px;
+  height: 1092px;
+  margin: 65px auto 0;
+  overflow: hidden;
+}
+
+.title {
+  position: absolute;
+  top: 74px;
+  left: calc(50% + 7px);
+  z-index: 1;
+  width: 720px;
+  margin: 0;
+  color: #003d4c;
+  font-family: var(--font-figtree), sans-serif;
+  font-size: 35px;
+  font-weight: 600;
+  line-height: 37px;
+  text-align: center;
+  transform: translateX(-50%);
+  text-box: trim-both cap alphabetic;
+}
+
+.stage {
+  position: absolute;
+  top: 73px;
+  left: calc(50% + 7px - 683px);
+  width: 1366px;
+  height: 992px;
+}
+
+.orbita {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.anillo,
+.flotante,
+.vidrio {
+  position: absolute;
+  max-width: none;
+}
+
+/* Los dos anillos externos (con brillo en un arco) giran lento. */
+.anilloGira {
+  animation: girar 60s linear infinite;
+}
+
+@keyframes girar {
+  from {
+    rotate: -90deg;
+  }
+  to {
+    rotate: 270deg;
+  }
+}
+
+.flotante {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(0, 149, 205, 0.18);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.35);
+  box-shadow: 0 8px 24px -12px rgba(0, 61, 76, 0.2);
+  opacity: 0.8;
+  animation: flotar 6s ease-in-out infinite;
+}
+
+.flotante:nth-child(odd) {
+  animation-delay: -3s;
+}
+
+@keyframes flotar {
+  50% {
+    translate: 0 -10px;
+  }
+}
+
+/* Vidrio central (dispersion glass): 257 × 253 en (555, 362). */
+.vidrio {
+  top: 362px;
+  left: 555px;
+  width: 257px;
+  height: 253px;
+}
+
+.vidrio img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.modulos {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.modulo {
+  position: absolute;
+  z-index: 1;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 16px 20px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.55);
+  box-shadow: 0 10px 30px -18px rgba(0, 61, 76, 0.35);
+  backdrop-filter: blur(10px);
+  transition:
+    translate 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s ease,
+    background-color 0.35s ease;
+}
+
+.modulo:hover {
+  translate: 0 -4px;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 18px 40px -18px rgba(0, 61, 76, 0.45);
+}
+
+/* Lado izquierdo del círculo: texto alineado a la derecha y el ícono al final. */
+.moduloDerecha {
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+  text-align: right;
+}
+
+.moduloDerecha .moduloTexto {
+  align-items: flex-end;
+}
+
+.icono {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 53px;
+  height: 53.87px;
+  border-radius: 10px;
+  background: #0095cd;
+  transition: scale 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.modulo:hover .icono {
+  scale: 1.08;
+}
+
+.moduloTexto {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  color: #003d4c;
+}
+
+.moduloTitle,
+.moduloText {
+  margin: 0;
+  text-box: trim-both cap alphabetic;
+}
+
+.moduloTitle {
+  font-family: var(--font-manrope), sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 26px;
+}
+
+.moduloText {
+  width: 270px;
+  font-family: var(--font-manrope), sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.moduloDerecha .moduloText {
+  width: 282px;
+}
+
+@media (max-width: 1400px) {
+  .section {
+    height: auto;
+    min-height: 0;
+  }
+
+  .stage {
+    position: relative;
+    top: auto;
+    left: 50%;
+    margin: 150px 0 60px;
+    zoom: 0.8;
+    translate: -50% 0;
+  }
+
+  .title {
+    top: 60px;
+  }
+}
+
+/* En pantallas chicas: el círculo como fondo y los módulos en lista. */
+@media (max-width: 1000px) {
+  .section {
+    margin-top: 40px;
+    padding: 120px 16px 60px;
+  }
+
+  .title {
+    top: 50px;
+    left: 50%;
+    width: calc(100% - 32px);
+    font-size: 28px;
+    line-height: 32px;
+  }
+
+  .stage {
+    position: relative;
+    left: auto;
+    width: auto;
+    height: auto;
+    margin: 0;
+    zoom: 1;
+    translate: none;
+  }
+
+  .orbita {
+    top: 50%;
+    left: 50%;
+    width: 1366px;
+    height: 992px;
+    opacity: 0.5;
+    translate: -50% -50%;
+    scale: 0.6;
+  }
+
+  .modulos {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .modulo,
+  .moduloDerecha {
+    position: relative;
+    top: auto !important;
+    left: auto !important;
+    width: auto !important;
+    flex-direction: row;
+    text-align: left;
+  }
+
+  .moduloDerecha .moduloTexto {
+    align-items: flex-start;
+  }
+
+  .moduloText,
+  .moduloDerecha .moduloText {
+    width: auto;
+  }
+
+  .moduloTitle {
+    font-size: 19px;
+  }
+
+  .moduloText {
+    font-size: 15px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .anilloGira,
+  .flotante {
+    animation: none;
+  }
+}

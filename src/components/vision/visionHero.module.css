@@ -1,0 +1,225 @@
+.section {
+  position: relative;
+  overflow: hidden;
+  background: #003d4c;
+}
+
+/* Lienzo del frame de Figma (1439 × 834). */
+.stage {
+  position: relative;
+  max-width: 1439px;
+  height: 834px;
+  margin: 0 auto;
+}
+
+/* Ola 3D girada -18.99° (caja 2297.4 × 1242.4 centrada en (749.3, 355.1)). */
+.ola {
+  position: absolute;
+  top: -266.1px;
+  left: -27.76%;
+  width: 159.65%;
+  aspect-ratio: 2297.4 / 1242.37;
+  overflow: hidden;
+  pointer-events: none;
+  transform: rotate(-18.99deg);
+}
+
+.ola img {
+  position: absolute;
+  top: 6.89%;
+  left: 10.4%;
+  width: 102.28%;
+  max-width: none;
+  height: 102.28%;
+}
+
+.copy {
+  position: absolute;
+  top: 480px;
+  left: 59.14%;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 37px;
+  width: 456px;
+  color: #fefefe;
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-figtree), sans-serif;
+  font-size: 54px;
+  font-weight: 600;
+  line-height: 58px;
+  text-box: trim-both cap alphabetic;
+}
+
+.lead {
+  margin: 0;
+  font-family: var(--font-manrope), sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 26px;
+  text-box: trim-both cap alphabetic;
+}
+
+.visual {
+  position: absolute;
+  top: 170px;
+  left: 0;
+  z-index: 1;
+  width: 749px;
+  height: 700px;
+}
+
+.photo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 749px;
+  height: 700px;
+  overflow: hidden;
+}
+
+.photo img {
+  position: absolute;
+  top: -54.36%;
+  left: -37.1%;
+  width: 175.9%;
+  max-width: none;
+  height: 282.21%;
+}
+
+/* Círculo de vidrio */
+.glass {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  overflow: hidden;
+  border: var(--border) solid #fff;
+  border-radius: 50%;
+  background: linear-gradient(
+    196.6deg,
+    rgba(255, 235, 225, 0.026) 2.63%,
+    rgba(239, 221, 212, 0.026) 42.97%,
+    rgba(169, 209, 223, 0.067) 79.57%,
+    rgba(87, 196, 236, 0.114) 79.59%,
+    rgba(255, 255, 255, 0.2) 95.59%
+  );
+  box-shadow:
+    var(--shadow) var(--shadow) calc(var(--shadow) * 3.25) 0 rgba(158, 158, 158, 0.22),
+    inset calc(var(--shadow) * 0.4167) calc(var(--shadow) * 0.8333) calc(var(--shadow) * 0.8333) 0
+      rgba(233, 233, 233, 0.25);
+}
+
+.glass img {
+  flex-shrink: 0;
+}
+
+/* Posiciones relativas al lienzo de la foto (x, y - 170 del frame). */
+.iconHandshake {
+  --border: 1.971px;
+  --shadow: 23.657px;
+
+  top: 185px;
+  left: 149px;
+  width: 138px;
+  height: 138px;
+}
+
+.iconChart {
+  --border: 1.529px;
+  --shadow: 18.343px;
+
+  top: 516px;
+  left: 75px;
+  width: 107px;
+  height: 107px;
+}
+
+.iconAtom {
+  --border: 1.223px;
+  --shadow: 14.67px;
+
+  top: 517px;
+  left: 651px;
+  width: 75px;
+  height: 75px;
+}
+
+.iconBook {
+  --border: 0.657px;
+  --shadow: 7.886px;
+
+  top: 185px;
+  left: 605px;
+  width: 46px;
+  height: 46px;
+}
+
+/* Entre 1100 y 1280 la foto se achica para no pisar el texto. */
+@media (max-width: 1280px) {
+  .visual {
+    zoom: 0.85;
+  }
+}
+
+@media (max-width: 1100px) {
+  .stage {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    padding: 150px 24px 0;
+  }
+
+  /* En mobile la ola pasa detrás de la foto, no del título. */
+  .ola {
+    top: auto;
+    bottom: 60px;
+    left: -60%;
+    width: 240%;
+  }
+
+  .copy {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: auto;
+    max-width: 560px;
+    gap: 24px;
+  }
+
+  .title {
+    font-size: 40px;
+    line-height: 44px;
+  }
+
+  .lead {
+    font-size: 18px;
+    line-height: 25px;
+  }
+
+  .visual {
+    position: relative;
+    top: auto;
+    align-self: center;
+    margin-top: 32px;
+    /* Recorta el pie de la foto como el borde inferior del frame (834 - 170). */
+    height: 664px;
+    overflow: hidden;
+    zoom: 0.8;
+  }
+}
+
+@media (max-width: 600px) {
+  .title {
+    font-size: 34px;
+    line-height: 38px;
+  }
+
+  .visual {
+    zoom: 0.5;
+  }
+}

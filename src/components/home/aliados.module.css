@@ -1,0 +1,59 @@
+/* "Nuestros aliados": y 7918 del home, 180px debajo del compromiso y 121px antes del footer. */
+.section {
+  background: #fff;
+  box-shadow: 0 0 0 100vmax #fff;
+  clip-path: inset(0 -100vmax);
+  display: flex;
+  flex-direction: column;
+  gap: 61px;
+  align-items: center;
+  max-width: 902px;
+  margin: 0 auto;
+  padding: 180px 16px 121px;
+  box-sizing: content-box;
+}
+
+.title {
+  margin: 0;
+  color: #003d4c;
+  font-family: var(--font-figtree), sans-serif;
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 30px;
+  text-align: center;
+  text-box: trim-both cap alphabetic;
+}
+
+.logos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px 96px;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.logos img {
+  display: block;
+  object-fit: contain;
+  object-position: bottom;
+  opacity: 0.6;
+  transition: opacity 0.2s ease;
+}
+
+.logos img:hover {
+  opacity: 1;
+}
+
+@media (max-width: 700px) {
+  .section {
+    padding: 100px 16px 80px;
+    gap: 40px;
+  }
+
+  .logos {
+    gap: 28px 40px;
+  }
+}

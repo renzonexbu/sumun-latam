@@ -1,0 +1,312 @@
+/* Frame de Figma: 1438 × 1516 en y = 2579, fondo azul oscuro. */
+.section {
+  position: relative;
+  margin-top: 127px;
+  overflow: hidden;
+  background: #004656;
+}
+
+/* Cintas "Linezo": una abajo a la izquierda y otra girada -43.62° arriba a la derecha. */
+.linezoA,
+.linezoB {
+  position: absolute;
+  width: 920px;
+  height: 534px;
+  pointer-events: none;
+}
+
+.linezoA {
+  top: 1034px;
+  left: calc(50% - 737px);
+}
+
+.linezoB {
+  top: calc(-179px + 510.63px - 267px);
+  left: calc(50% - 719px + 772px + 517.21px - 460px);
+  transform: rotate(-43.62deg);
+}
+
+.linezoA img,
+.linezoB img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.stage {
+  position: relative;
+  max-width: 1438px;
+  min-height: 1516px;
+  margin: 0 auto;
+  padding-top: 124px;
+  box-sizing: border-box;
+}
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+  width: min(885px, calc(100% - 32px));
+  height: 161px;
+  margin: 0 auto;
+  color: #fefefe;
+  font-weight: 600;
+  text-align: center;
+  transform: translateX(1.5px);
+}
+
+.eyebrow {
+  margin: 0;
+  font-family: var(--font-manrope), sans-serif;
+  font-size: 22px;
+  line-height: 26px;
+  text-box: trim-both cap alphabetic;
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-figtree), sans-serif;
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 49px;
+  text-box: trim-both cap alphabetic;
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 19px 20px;
+  width: 1182px;
+  margin: 47px 0 0 131px;
+}
+
+.card {
+  position: relative;
+  box-sizing: border-box;
+  width: 581px;
+  height: 622px;
+  overflow: hidden;
+  border: 1px solid #eee;
+  border-radius: 20px;
+  background: #fff;
+  color: #006678;
+}
+
+.card::after {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow:
+    inset 0 4px 40.5px -16px #fff,
+    inset 0 -24px 24px -16px #fff;
+  content: "";
+  pointer-events: none;
+}
+
+.cardTitle {
+  position: absolute;
+  top: 61px;
+  left: 49px;
+  margin: 0;
+  font-family: var(--font-figtree), sans-serif;
+  font-size: 35px;
+  font-weight: 600;
+  line-height: 37px;
+  text-box: trim-both cap alphabetic;
+}
+
+.cardText {
+  position: absolute;
+  left: 50px;
+  z-index: 1;
+  width: 491px;
+  margin: 0;
+  font-family: var(--font-manrope), sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 24px;
+  text-box: trim-both cap alphabetic;
+}
+
+.cardText strong {
+  font-weight: 700;
+}
+
+.art {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.art img,
+.art > span {
+  position: absolute;
+  max-width: none;
+}
+
+/* Macro: tarjetas de vidrio giradas */
+.pildora {
+  box-sizing: border-box;
+  overflow: hidden;
+  border: solid rgba(255, 255, 255, 0.76);
+}
+
+.pildoraBrillo {
+  position: absolute;
+  border-radius: 12px;
+  background-size: 100% 100%;
+  box-shadow: inset 14.27px 13px 28.8px 0 #fff;
+}
+
+.pildoraTile {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  box-shadow:
+    inset 4.6px 9.2px 9.2px 0 rgba(233, 233, 233, 0.25),
+    inset -5.5px -7.35px 9.2px 0 rgba(248, 248, 248, 0.25),
+    inset 14.27px 13px 28.8px 0 #fff;
+}
+
+.pildoraTitle,
+.pildoraSub {
+  position: absolute;
+  font-family: var(--font-manrope), sans-serif;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  transform: translateX(-50%);
+}
+
+.pildoraTitle {
+  font-weight: 600;
+}
+
+.pildoraSub {
+  font-weight: 400;
+}
+
+/* Micro: chat */
+.telefono {
+  box-sizing: border-box;
+  overflow: hidden;
+  border: 1.719px solid rgba(255, 255, 255, 0.76);
+  border-radius: 27.209px;
+  box-shadow:
+    0 6.877px 50.032px 0 rgba(255, 255, 255, 0.39),
+    16.326px 16.326px 53.059px 0 rgba(158, 158, 158, 0.22);
+}
+
+.telefono > span {
+  position: absolute;
+  background-size: 100% 100%;
+  backdrop-filter: blur(5.8px);
+}
+
+.burbujaText {
+  color: #003d4c;
+  font-family: var(--font-manrope), sans-serif;
+  font-weight: 700;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+/* Trazo de 85px en caja de 240 × 57 en Figma: equivale a una píldora rellena difuminada. */
+.sombraNaranja {
+  top: calc(399.57px - 28.57px);
+  left: calc(227px - 120px);
+  width: 240px;
+  height: 57.134px;
+  border-radius: 42.637px;
+  /* Resplandor celeste a la izquierda y naranja a la derecha, como en el render de Figma. */
+  background: linear-gradient(90deg, #00b9ff 0%, #00b9ff 30%, #ff6f00 70%);
+  filter: blur(9.977px);
+}
+
+.botonMicro {
+  top: 144px;
+  left: 246px;
+  display: flex;
+  gap: 6.108px;
+  align-items: center;
+  box-sizing: border-box;
+  height: 45.089px;
+  padding: 9.162px 18.325px;
+  border: 0.764px solid #fff;
+  border-radius: 76.352px;
+  background: linear-gradient(229.92deg, #daf5fe 2.66%, #00b9ff 46.53%, #0083af 108.11%);
+  color: #fff;
+  font-family: var(--font-manrope), sans-serif;
+  font-size: 12.216px;
+  font-weight: 600;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+.botonMicro img {
+  position: static;
+}
+
+.mapa {
+  width: 1177px;
+  height: 419px;
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+.mapa img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 1340px) {
+  .grid {
+    justify-content: center;
+    width: auto;
+    max-width: 1182px;
+    margin: 47px auto 0;
+    padding: 0 16px;
+  }
+
+  .mapa {
+    width: 100%;
+    max-width: 1177px;
+    height: auto;
+    aspect-ratio: 1177 / 419;
+  }
+}
+
+@media (max-width: 700px) {
+  .stage {
+    min-height: 0;
+    padding: 80px 0;
+  }
+
+  .intro {
+    height: auto;
+    transform: none;
+  }
+
+  .eyebrow {
+    font-size: 17px;
+    line-height: 22px;
+  }
+
+  .title {
+    font-size: 32px;
+    line-height: 36px;
+  }
+
+  .card {
+    zoom: 0.6;
+  }
+
+  .grid {
+    gap: 16px;
+  }
+}

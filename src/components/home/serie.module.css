@@ -1,0 +1,448 @@
+/* Bloque "Serie documental" + "Conversaciones Sumun": y 4777 → 6126 del home (OP2). */
+.section {
+  position: relative;
+  overflow: hidden;
+  padding: 150px 0 83px;
+  background: #fff;
+}
+
+/* Posiciones relativas a y = 4927 (tope de las tarjetas de episodios). */
+.stage {
+  position: relative;
+  max-width: 1439px;
+  height: 1116px;
+  margin: 0 auto;
+}
+
+.intro {
+  position: absolute;
+  top: 90px;
+  left: 134px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 282px;
+  font-family: var(--font-figtree), sans-serif;
+  font-weight: 600;
+}
+
+.eyebrow,
+.title {
+  margin: 0;
+  text-box: trim-both cap alphabetic;
+}
+
+.eyebrow {
+  color: #f15a2e;
+  font-size: 30px;
+  line-height: 30px;
+}
+
+.title {
+  color: #003d4c;
+  font-size: 48px;
+  line-height: 49px;
+}
+
+.verSerie {
+  position: absolute;
+  top: 398px;
+  left: 126px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: 15px 18px;
+  border: 1px solid #ebebeb;
+  border-radius: 100px;
+  background: #fefefe;
+  color: #003d4c;
+  font-family: var(--font-manrope), sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+/* Carrusel de episodios */
+.viewport {
+  position: absolute;
+  top: 0;
+  left: 448px;
+  width: calc(100vw - 448px);
+  max-width: 1439px;
+  height: 488px;
+}
+
+.track {
+  display: flex;
+  gap: 13px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  transform: translateX(calc(var(--start) * -433px));
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.episodio {
+  position: relative;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  width: 420px;
+  height: 488px;
+  overflow: hidden;
+  border: 1.25px solid #fff;
+  border-radius: 25px;
+  background: #fff;
+  transition: opacity 0.6s ease;
+}
+
+.episodioAtenuado {
+  opacity: 0.35;
+}
+
+.foto {
+  position: absolute;
+  top: -1.25px;
+  left: -66.25px;
+  width: 724.8px;
+  height: 473.84px;
+}
+
+.foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.velo {
+  position: absolute;
+  top: -1.25px;
+  left: -1.25px;
+  width: 481.23px;
+  height: 437.48px;
+  background: radial-gradient(
+    408px 371px at 227.5px 208.74px,
+    rgba(217, 217, 217, 0) 40%,
+    rgba(240, 240, 240, 0.68) 69.4%,
+    #fbfbfb 100%
+  );
+  backdrop-filter: blur(2.5px);
+  -webkit-mask-image: radial-gradient(408px 371px at 227.5px 208.74px, transparent 40%, #000 80%);
+  mask-image: radial-gradient(408px 371px at 227.5px 208.74px, transparent 40%, #000 80%);
+}
+
+.degradado {
+  position: absolute;
+  top: 235.23px;
+  left: -1.25px;
+  width: 481.55px;
+  height: 251.52px;
+  background: linear-gradient(180deg, rgba(0, 61, 76, 0) 0%, rgba(0, 61, 76, 0.91) 73.75%, #003d4c 84.32%);
+}
+
+.epTitle {
+  position: absolute;
+  top: 312.75px;
+  left: 26.75px;
+  width: 339px;
+  margin: 0;
+  color: #fff;
+  font-family: var(--font-manrope), sans-serif;
+  font-size: 23.65px;
+  font-weight: 700;
+  line-height: normal;
+  text-box: trim-both cap alphabetic;
+}
+
+.epLink,
+.convLink {
+  position: absolute;
+  display: inline-flex;
+  gap: 8.6px;
+  align-items: center;
+  color: #fff;
+  font-family: var(--font-manrope), sans-serif;
+  font-weight: 700;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.epLink {
+  top: 419.03px;
+  left: 26.7px;
+  font-size: 17.2px;
+}
+
+.epLink img,
+.convLink img {
+  transition: transform 0.2s ease;
+}
+
+.epLink:hover img,
+.convLink:hover img {
+  transform: translateX(4px);
+}
+
+.siguiente {
+  position: absolute;
+  top: 146px;
+  left: 1276px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  border: 1px solid #eee;
+  border-radius: 50px;
+  background: #fff;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.siguiente img {
+  transform: rotate(90deg);
+}
+
+.siguiente:hover {
+  transform: scale(1.06);
+}
+
+.siguiente:focus-visible {
+  outline: 2px solid #0095cd;
+  outline-offset: 3px;
+}
+
+/* Conversaciones Sumun (1190 × 571) */
+.conversaciones {
+  position: absolute;
+  top: 545px;
+  left: 126px;
+  width: 1190px;
+  height: 571px;
+  overflow: hidden;
+  border-radius: 20px;
+  background: #003d4c;
+}
+
+.conversaciones > * {
+  position: absolute;
+  margin: 0;
+}
+
+.convFoto {
+  top: 0;
+  left: 0.02%;
+  width: 108.18%;
+  height: 99.94%;
+}
+
+.convFoto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Mancha blanca difuminada detrás del logo. */
+.convBrillo {
+  top: calc(-198.67px + 270.17px - 208.5px);
+  left: calc(-187.89px + 415.46px - 386px);
+  width: 772px;
+  height: 417px;
+  background: #fff;
+  filter: blur(97.55px);
+  transform: rotate(-9.64deg);
+}
+
+.convLogo {
+  top: 82px;
+  left: 63px;
+  width: 401px;
+  height: 33.44px;
+  object-fit: cover;
+}
+
+.convSub {
+  top: 128.85px;
+  left: 276px;
+  color: #004656;
+  font-family: var(--font-manrope), sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.5;
+  white-space: nowrap;
+  transform: translateX(-50%);
+}
+
+.convSombra {
+  top: 222px;
+  left: 0;
+  width: 1187px;
+  height: 568px;
+  background: linear-gradient(179.92deg, rgba(0, 61, 76, 0) 0.15%, rgba(0, 61, 76, 0.9) 61.23%);
+  filter: blur(10px);
+}
+
+.convTitle,
+.convAutor,
+.convText {
+  left: 63px;
+  width: 749px;
+  color: #fefefe;
+  text-box: trim-both cap alphabetic;
+}
+
+.convTitle {
+  top: 357px;
+  font-family: var(--font-figtree), sans-serif;
+  font-size: 35px;
+  font-weight: 800;
+  line-height: 37px;
+}
+
+.convAutor {
+  top: 400px;
+  font-family: var(--font-figtree), sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 37px;
+}
+
+.convText {
+  top: 444px;
+  left: 64px;
+  font-family: var(--font-manrope), sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 24px;
+}
+
+.convLink {
+  top: 477px;
+  left: 1015px;
+  font-size: 16px;
+}
+
+@media (max-width: 1280px) {
+  .section {
+    padding: 96px 16px 80px;
+  }
+
+  .stage {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    height: auto;
+  }
+
+  .intro,
+  .verSerie,
+  .viewport,
+  .siguiente,
+  .conversaciones {
+    position: relative;
+    top: auto;
+    left: auto;
+  }
+
+  .intro {
+    width: auto;
+  }
+
+  .verSerie {
+    align-self: flex-start;
+    order: 3;
+  }
+
+  .viewport {
+    order: 2;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+  }
+
+  .siguiente {
+    order: 2;
+    align-self: flex-end;
+    margin-top: -12px;
+  }
+
+  .conversaciones {
+    order: 4;
+    width: 100%;
+    height: 520px;
+  }
+
+  .convLink {
+    left: 63px;
+    top: 480px;
+  }
+}
+
+@media (max-width: 700px) {
+  .title {
+    font-size: 36px;
+    line-height: 40px;
+  }
+
+  .eyebrow {
+    font-size: 24px;
+  }
+
+  .episodio {
+    zoom: 0.8;
+  }
+
+  .conversaciones {
+    height: 560px;
+  }
+
+  .convLogo {
+    left: 24px;
+    width: 280px;
+    height: auto;
+  }
+
+  .convSub {
+    top: 110px;
+    left: 24px;
+    font-size: 16px;
+    white-space: normal;
+    transform: none;
+  }
+
+  .convTitle,
+  .convAutor,
+  .convText,
+  .convLink {
+    left: 24px;
+    width: calc(100% - 48px);
+  }
+
+  .convTitle {
+    top: 300px;
+    font-size: 26px;
+    line-height: 30px;
+  }
+
+  .convAutor {
+    top: 370px;
+    font-size: 17px;
+  }
+
+  .convText {
+    top: 410px;
+    font-size: 15px;
+    line-height: 20px;
+  }
+
+  .convLink {
+    top: 510px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .track,
+  .episodio {
+    transition: none;
+  }
+}

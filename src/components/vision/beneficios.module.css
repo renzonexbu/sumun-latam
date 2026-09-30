@@ -1,0 +1,682 @@
+/* Bloque "Los beneficios…" de Figma: 1437 × 1298, contenido de 1244 centrado. */
+.section {
+  margin-top: 113px;
+  overflow: hidden;
+  background: #004656;
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: center;
+  max-width: 1244px;
+  margin: 0 auto;
+  padding: 125px 16px;
+  box-sizing: content-box;
+}
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+  color: #fefefe;
+  text-align: center;
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-figtree), sans-serif;
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 49px;
+  text-box: trim-both cap alphabetic;
+}
+
+.lead {
+  margin: 0;
+  font-family: var(--font-manrope), sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 26px;
+  text-box: trim-both cap alphabetic;
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22px;
+  align-content: flex-start;
+  align-items: flex-start;
+  width: 1184px;
+}
+
+.subgrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22px;
+  align-items: flex-start;
+  width: 782px;
+}
+
+/* Tarjeta base (efecto "Glas 1" de Figma) */
+.card {
+  position: relative;
+  flex-shrink: 0;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 12px 12px 39px 0 rgba(158, 158, 158, 0.1);
+  font-family: var(--font-manrope), sans-serif;
+}
+
+.card::after {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  border-radius: inherit;
+  box-shadow:
+    inset 5px 10px 10px 0 rgba(233, 233, 233, 0.25),
+    inset -6px -8px 10px 0 rgba(248, 248, 248, 0.25);
+  content: "";
+  pointer-events: none;
+}
+
+.card h3,
+.card p {
+  margin: 0;
+}
+
+.art {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.abs,
+.art img {
+  position: absolute;
+  max-width: none;
+}
+
+.rotado {
+  position: absolute;
+}
+
+.capa {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: inherit;
+}
+
+.capa img {
+  position: absolute;
+  max-width: none;
+}
+
+.capa94 {
+  opacity: 0.94;
+}
+
+/* 1. Resultados (380 × 571) */
+.cardResultados {
+  width: 380px;
+  height: 571px;
+}
+
+.textResultados {
+  position: absolute;
+  z-index: 1;
+  color: #006678;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 26px;
+  text-box: trim-both cap alphabetic;
+}
+
+.textResultados strong {
+  font-weight: 800;
+}
+
+.chatCard {
+  position: absolute;
+  box-sizing: border-box;
+  border: 1.063px solid #e7e7e7;
+  border-radius: 23.828px;
+  background: #fff;
+  box-shadow: -1.191px 16.68px 36.814px -4.766px rgba(208, 208, 208, 0.26);
+}
+
+.barra {
+  position: absolute;
+  box-sizing: border-box;
+  border: 1.063px solid #e7e7e7;
+  border-radius: 13.309px;
+  background-size: 100% 100%;
+  box-shadow:
+    16.219px 16.219px 52.713px 0 rgba(158, 158, 158, 0.22),
+    inset 6.758px 13.516px 13.516px 0 rgba(233, 233, 233, 0.25),
+    inset -8.11px -10.813px 13.516px 0 rgba(248, 248, 248, 0.25);
+}
+
+.burbujaText {
+  position: absolute;
+  color: #003d4c;
+  font-family: var(--font-manrope), "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", sans-serif;
+  font-size: 14.085px;
+  line-height: 1.17;
+}
+
+.botonMate {
+  position: absolute;
+  display: flex;
+  gap: 7.315px;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 10.973px 21.946px;
+  border: 0.914px solid #fff;
+  border-radius: 91.443px;
+  background: linear-gradient(226.46deg, #ffece6 7.23%, #ff9a4f 41.13%, #ff6f00 109%);
+  color: #fff;
+  font-size: 14.631px;
+  font-weight: 600;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+.botonMate img {
+  position: static;
+}
+
+.avatar {
+  position: absolute;
+  box-sizing: border-box;
+  overflow: hidden;
+  border: 3.328px solid #fff;
+  border-radius: 50%;
+  background: #fff;
+}
+
+/* 2. Datos (379 × 275) */
+.cardDatos {
+  box-sizing: border-box;
+  width: 379px;
+  height: 275px;
+  border: 1px solid #fff;
+}
+
+.textDatos {
+  position: absolute;
+  z-index: 1;
+  color: #006678;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 25px;
+  text-box: trim-both cap alphabetic;
+}
+
+.textDatos strong {
+  font-weight: 800;
+}
+
+.punto52 {
+  position: absolute;
+  box-sizing: border-box;
+  width: 52px;
+  height: 52px;
+  overflow: hidden;
+  border: 1.268px solid #fff;
+  border-radius: 50%;
+}
+
+.punto52 > span:first-child {
+  position: absolute;
+  top: 10.15px;
+  left: 10.15px;
+  box-sizing: border-box;
+  width: 30.439px;
+  height: 30.439px;
+  border: 0.562px solid #fff;
+  border-radius: 50%;
+  background: #fff;
+}
+
+/* Aro blanco difuso girado (capa "Sombra" de Figma); left/top = centro. */
+.sombraAnillo {
+  position: absolute;
+  box-sizing: border-box;
+  width: 57px;
+  height: 61px;
+  border: 6.379px solid #fff;
+  border-radius: 53.16px;
+  filter: blur(4.05px);
+  transform: translate(-50%, -50%) rotate(-106.3deg);
+}
+
+/* 3. Personalización (379 × 279) */
+.cardPersonalizacion {
+  width: 379px;
+  height: 279px;
+}
+
+.textPersonalizacion {
+  position: absolute;
+  top: 74px;
+  left: calc(50% + 0.5px);
+  z-index: 1;
+  width: 272px;
+  color: #006678;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 24px;
+  text-align: center;
+  transform: translateX(-50%);
+  text-box: trim-both cap alphabetic;
+}
+
+.textPersonalizacion strong {
+  font-weight: 800;
+}
+
+.textPersonalizacion b {
+  font-weight: 700;
+}
+
+.sombraNaranja {
+  position: absolute;
+  top: 213.86px;
+  left: 189.25px;
+  /* En Figma es un trazo interior de 68px en una caja de 138 × 46: equivale a una píldora rellena. */
+  width: 138.502px;
+  height: 45.712px;
+  border-radius: 34.114px;
+  background: linear-gradient(90deg, #00b9ff 0%, #00b9ff 30%, #ff6f00 70%);
+  filter: blur(7.983px);
+  transform: translate(-50%, -50%);
+}
+
+.creando {
+  position: absolute;
+  top: 206.01px;
+  left: 153.43px;
+  color: #003d4c;
+  font-size: 12.488px;
+  font-weight: 700;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+/* 4. Familias (380 × 277) */
+.cardFamilias {
+  width: 380px;
+  height: 277px;
+  /* Paradas ordenadas: en Figma vienen desordenadas (19.6%, 6.6%, 1.8%…). */
+  background: linear-gradient(
+    247.44deg,
+    #a2d2ee 1.8135%,
+    #c8e2f9 6.5638%,
+    #e2e2f0 19.558%,
+    #69badd 48.415%,
+    #6cbcdf 85.441%,
+    #0083af 109.66%
+  );
+}
+
+.familiasVelo {
+  position: absolute;
+  top: -188px;
+  left: -142px;
+  width: 769px;
+  height: 556px;
+  background: rgba(250, 250, 250, 0.27);
+}
+
+.textFamilias {
+  position: absolute;
+  top: 40px;
+  left: 50%;
+  z-index: 1;
+  width: 332px;
+  color: #fefefe;
+  font-size: 21px;
+  font-weight: 500;
+  line-height: 24px;
+  text-align: center;
+  transform: translateX(-50%);
+  text-box: trim-both cap alphabetic;
+}
+
+.textFamilias strong {
+  font-weight: 800;
+}
+
+.planeta {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  overflow: hidden;
+  border: 1.265px solid #fff;
+  border-radius: 50%;
+  background: linear-gradient(
+    -33.95deg,
+    rgba(255, 225, 210, 0.026) 9.69%,
+    rgba(3, 192, 255, 0.04) 95.38%,
+    rgba(255, 255, 255, 0.2) 112.62%
+  );
+}
+
+.planeta img,
+.vidrio img,
+.vidrioNaranja > img {
+  position: relative;
+  z-index: 1;
+}
+
+.planetaBrillo {
+  position: absolute;
+  top: -4.73px;
+  left: -2.56px;
+  width: 47.007px;
+  height: 44.841px;
+  background: rgba(255, 255, 255, 0.03);
+  box-shadow:
+    inset 0 1.812px 18.344px -7.247px #fff,
+    inset 0 -10.871px 10.871px -7.247px #fff,
+    inset 0 0 5.435px 0 #daf5fe;
+}
+
+.fotoFamilia {
+  position: absolute;
+  overflow: hidden;
+  border-radius: 50%;
+  background: #fff;
+}
+
+.burbujaBrillo {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow:
+    inset 0 7.863px 79.615px -31.453px #fff,
+    inset 0 -47.179px 47.179px -31.453px #fff,
+    inset 0 0 23.59px 0 #daf5fe;
+}
+
+.vidrio {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  overflow: hidden;
+  border: 1.812px solid #fff;
+  border-radius: 50%;
+}
+
+.vidrioAtom {
+  background: linear-gradient(
+    196.6deg,
+    rgba(255, 235, 225, 0.026) 2.63%,
+    rgba(239, 221, 212, 0.026) 42.97%,
+    rgba(169, 209, 223, 0.067) 79.57%,
+    rgba(87, 196, 236, 0.114) 79.59%,
+    rgba(255, 255, 255, 0.2) 95.59%
+  );
+  box-shadow:
+    21.741px 21.741px 70.659px 0 rgba(158, 158, 158, 0.22),
+    inset 9.059px 18.118px 18.118px 0 rgba(233, 233, 233, 0.25);
+}
+
+.vidrioChat {
+  background: linear-gradient(
+    196.6deg,
+    rgba(255, 235, 225, 0.042) 2.63%,
+    rgba(239, 221, 212, 0.042) 19.96%,
+    rgba(87, 196, 236, 0.32) 69.76%
+  );
+}
+
+/* 5. Clima (379 × 277) */
+.cardClima {
+  width: 379px;
+  height: 277px;
+  background: #d8d8d8;
+}
+
+.climaFoto {
+  position: absolute;
+  overflow: hidden;
+  background: #d9d9d9;
+}
+
+.climaVelo {
+  position: absolute;
+  background: linear-gradient(
+    179.52deg,
+    rgba(255, 255, 255, 0) 13.39%,
+    rgba(255, 255, 255, 0.3) 46.11%,
+    rgba(255, 255, 255, 0.783) 66.87%,
+    rgba(255, 255, 255, 0.965) 92.82%
+  );
+  backdrop-filter: blur(25.8px);
+  filter: blur(2.85px);
+  /* El desenfoque aparece con el degradado (arriba la foto queda nítida, como en Figma). */
+  -webkit-mask-image: linear-gradient(180deg, transparent 42%, #000 82%);
+  mask-image: linear-gradient(180deg, transparent 42%, #000 82%);
+}
+
+.textClima {
+  position: absolute;
+  top: 187px;
+  left: 50%;
+  z-index: 1;
+  width: 287px;
+  color: #003d4c;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 24px;
+  text-align: center;
+  transform: translateX(-50%);
+  text-box: trim-both cap alphabetic;
+}
+
+.textClima strong {
+  font-weight: 800;
+}
+
+/* 6. Maestro (581 × 281) */
+.cardMaestro {
+  width: 581px;
+  height: 281px;
+}
+
+.maestroFoto {
+  position: absolute;
+  overflow: hidden;
+}
+
+.maestroFoto img {
+  position: absolute;
+  max-width: none;
+}
+
+.maestroTitle {
+  position: absolute;
+  color: #006678;
+  font-size: 25px;
+  font-weight: 800;
+  line-height: 27px;
+  text-box: trim-both cap alphabetic;
+}
+
+.maestroText {
+  position: absolute;
+  color: #006678;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  text-box: trim-both cap alphabetic;
+}
+
+/* 7. Y lo más importante (580 × 277) */
+.cardImportante {
+  width: 580px;
+  height: 277px;
+  background: #fab27b;
+}
+
+.circulo {
+  position: absolute;
+  box-sizing: border-box;
+  border-radius: 50%;
+  background-size: 100% 100%;
+  opacity: 0.7;
+  box-shadow:
+    12px 12px 39px 0 rgba(158, 158, 158, 0.22),
+    inset 5px 10px 10px 0 rgba(233, 233, 233, 0.25),
+    inset -6px -8px 10px 0 rgba(248, 248, 248, 0.25);
+}
+
+.circuloBorde {
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.circuloCentro {
+  background: rgba(241, 90, 46, 0.73);
+}
+
+.fotoDifusa {
+  position: absolute;
+  box-sizing: border-box;
+  overflow: hidden;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  background: #fff;
+}
+
+.vidrioNaranja {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  overflow: hidden;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  background: linear-gradient(
+    45deg,
+    rgba(255, 206, 168, 0.104) 22.67%,
+    rgba(255, 206, 168, 0.8) 48.38%,
+    rgba(255, 111, 0, 0.208) 80.81%,
+    rgba(255, 255, 255, 0.8) 101.05%
+  );
+}
+
+.vidrioGrande {
+  border-width: 3.286px;
+  background: linear-gradient(26.6deg, rgba(255, 69, 15, 0.464) 27.29%, rgba(255, 255, 255, 0.8) 116.41%);
+  filter: blur(2px);
+}
+
+.fotoIcono,
+.fotoIconoSinBrillo {
+  position: absolute;
+  z-index: 2;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.fotoIcono img {
+  position: absolute;
+  max-width: none;
+}
+
+.fotoIcono::after {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow:
+    inset 0 4px 40.5px -16px #fff,
+    inset 0 -24px 24px -16px #fff,
+    inset 0 0 12px 0 #daf5fe;
+  content: "";
+}
+
+.importanteTitle {
+  position: absolute;
+  z-index: 1;
+  color: #fefefe;
+  font-size: 25px;
+  font-weight: 800;
+  line-height: 40px;
+  white-space: nowrap;
+  text-box: trim-both cap alphabetic;
+}
+
+.importanteText {
+  position: absolute;
+  z-index: 1;
+  color: #fefefe;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 24px;
+  text-box: trim-both cap alphabetic;
+}
+
+/* Responsive */
+@media (max-width: 1240px) {
+  .inner {
+    padding: 96px 16px;
+  }
+
+  .grid {
+    justify-content: center;
+    width: 100%;
+    max-width: 782px;
+  }
+}
+
+@media (max-width: 820px) {
+  .title {
+    font-size: 36px;
+    line-height: 40px;
+  }
+
+  .title br {
+    display: none;
+  }
+
+  .lead {
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  .grid,
+  .subgrid {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .cardMaestro,
+  .cardImportante {
+    zoom: 0.62;
+  }
+}
+
+@media (max-width: 420px) {
+  .cardResultados,
+  .cardDatos,
+  .cardPersonalizacion,
+  .cardFamilias,
+  .cardClima {
+    zoom: 0.9;
+  }
+}
