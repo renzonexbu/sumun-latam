@@ -1,0 +1,221 @@
+/* Posiciones relativas a y = 936 del frame de Figma (título) hasta y = 1641. */
+.section {
+  padding-top: 102px;
+}
+
+.stage {
+  position: relative;
+  max-width: 1439px;
+  height: 705px;
+  margin: 0 auto;
+}
+
+.title {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 570px;
+  margin: 0;
+  color: #003d4c;
+  font-family: var(--font-figtree), sans-serif;
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 49px;
+  text-align: center;
+  transform: translateX(-50%);
+  text-box: trim-both cap alphabetic;
+}
+
+.corazon {
+  position: absolute;
+  top: 221px;
+  left: 217px;
+  width: 376px;
+  height: 333px;
+  object-fit: cover;
+  pointer-events: none;
+  /* En Figma la capa está espejada horizontalmente. */
+  transform: scaleX(-1);
+}
+
+.cultura {
+  position: absolute;
+  top: 122px;
+  left: 456px;
+  box-sizing: border-box;
+  width: 861px;
+  height: 432px;
+  padding: 57px 50px 0;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #004656;
+}
+
+.culturaTitle {
+  margin: 0;
+  color: #fefefe;
+  font-family: var(--font-figtree), sans-serif;
+  font-size: 35px;
+  font-weight: 600;
+  line-height: 37px;
+  text-box: trim-both cap alphabetic;
+}
+
+.culturaList {
+  display: flex;
+  gap: 20px;
+  margin: 37px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.culturaItem,
+.culturaItemBold {
+  display: flex;
+  flex: 1 0 0;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  height: 263px;
+  padding: 0 24px;
+  border: 1px solid #fff;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.02);
+  color: #fefefe;
+  font-family: var(--font-manrope), sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 24px;
+  text-align: center;
+  text-box: trim-both cap alphabetic;
+}
+
+.culturaItemBold {
+  font-weight: 700;
+  line-height: 22px;
+}
+
+/* Tarjeta de vidrio: desenfoca el corazón y la tarjeta de Cultura que quedan detrás. */
+.sinSumun {
+  position: absolute;
+  top: 462px;
+  left: 108px;
+  z-index: 1;
+  box-sizing: border-box;
+  width: 544px;
+  height: 243px;
+  padding: 50px 38px 0;
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.72) 0%, rgba(255, 255, 255, 0.35) 100%);
+  box-shadow: 0 16px 40px rgba(0, 61, 76, 0.06);
+  backdrop-filter: blur(3px);
+}
+
+.sinSumunWide {
+  top: 472px;
+  width: 784px;
+}
+
+.sinTitle {
+  margin: 0;
+  color: #003d4c;
+  font-family: var(--font-manrope), sans-serif;
+  font-size: 25px;
+  font-weight: 600;
+  line-height: 33px;
+  text-box: trim-both cap alphabetic;
+}
+
+.sinList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 31px 0 0;
+  padding: 0;
+  list-style: none;
+  color: #003d4c;
+  font-family: var(--font-manrope), sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.sinList li {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-left: 7px;
+}
+
+@media (max-width: 1360px) {
+  .stage {
+    zoom: 0.9;
+  }
+}
+
+@media (max-width: 1100px) {
+  .section {
+    padding: 80px 16px 0;
+  }
+
+  .stage {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    align-items: center;
+    height: auto;
+    zoom: 1;
+  }
+
+  .title,
+  .cultura,
+  .sinSumun {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+  }
+
+  .title {
+    width: auto;
+    max-width: 570px;
+    font-size: 36px;
+    line-height: 40px;
+  }
+
+  .corazon {
+    top: 140px;
+    left: -60px;
+    width: 220px;
+    height: auto;
+  }
+
+  .cultura {
+    width: 100%;
+    max-width: 861px;
+    height: auto;
+    padding: 40px 24px;
+  }
+
+  .culturaList {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .culturaItem,
+  .culturaItemBold {
+    height: auto;
+    min-height: 120px;
+  }
+
+  .sinSumun {
+    width: 100%;
+    max-width: 544px;
+    height: auto;
+    padding: 32px 24px;
+  }
+
+  .sinList {
+    font-size: 16px;
+  }
+}

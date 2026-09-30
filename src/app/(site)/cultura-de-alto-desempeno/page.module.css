@@ -1,0 +1,11 @@
+/* En esta página el hero mide 807 (no 834): el bloque arranca 112px debajo. */
+.habilidades {
+  padding-top: 112px;
+  padding-bottom: 39px;
+}
+
+@media (max-width: 1100px) {
+  .habilidades {
+    padding-top: 80px;
+  }
+}

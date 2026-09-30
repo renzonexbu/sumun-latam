@@ -138,6 +138,11 @@ export function BannerSlider({ slides }: { slides: BannerSlide[] }) {
             <img className={`${styles.dotCyan} ${styles.dotCyanC}`} src="/images/banner/punto.svg" alt="" />
           </div>
 
+          {/* Tramo delantero del anillo: pasa por delante del niño y tapa el corte inferior (Mask group en Figma). */}
+          <div className={styles.anilloFrente} aria-hidden="true">
+            <img src="/images/banner/anillo-frente.png" alt="" draggable={false} />
+          </div>
+
           <img className={`${styles.dotCyan} ${styles.dotCyanD}`} src="/images/banner/punto.svg" alt="" />
           <img className={`${styles.dotCyan} ${styles.dotCyanE}`} src="/images/banner/punto.svg" alt="" />
           <img className={`${styles.dotCyan} ${styles.dotCyanF}`} src="/images/banner/punto.svg" alt="" />

@@ -1,0 +1,17 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="625.61" height="276.783" viewBox="0 0 625.61 276.783" fill="none" xmlns="http://www.w3.org/2000/svg">
+<foreignObject x="0" y="1.70789e-07" width="625.61" height="276.783"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(2px);clip-path:url(#bgblur_0_0_51_clip_path);height:100%;width:100%"></div></foreignObject><g id="Vector 21" filter="url(#filter0_g_0_51)" data-figma-bg-blur-radius="4">
+<path d="M85.8244 20.7224C43.8 20.7224 6.3 68.1364 6.3 68.1364V270.483H606.3L619.31 39.7217C619.31 39.7217 599.81 15.9068 568.974 8.19475C513.393 -5.70581 488.978 61.437 440.151 61.437C404.288 61.4371 390.8 8.19471 345.8 8.19471C300.8 8.19471 274.35 69.7779 197.262 68.1364C139.514 66.9067 118.3 20.7224 85.8244 20.7224Z" fill="white" fill-opacity="0.01"/>
+</g>
+<defs>
+<filter id="filter0_g_0_51" x="0" y="1.70789e-07" width="625.61" height="276.783" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feTurbulence type="fractalNoise" baseFrequency="0.016420360654592514 0.016420360654592514" numOctaves="3" seed="8016" />
+<feDisplacementMap in="shape" scale="12.600000381469727" xChannelSelector="R" yChannelSelector="G" result="displacedImage" width="100%" height="100%" />
+<feMerge result="effect1_texture_0_51">
+<feMergeNode in="displacedImage"/>
+</feMerge>
+</filter>
+<clipPath id="bgblur_0_0_51_clip_path" transform="translate(0 -1.70789e-07)"><path d="M85.8244 20.7224C43.8 20.7224 6.3 68.1364 6.3 68.1364V270.483H606.3L619.31 39.7217C619.31 39.7217 599.81 15.9068 568.974 8.19475C513.393 -5.70581 488.978 61.437 440.151 61.437C404.288 61.4371 390.8 8.19471 345.8 8.19471C300.8 8.19471 274.35 69.7779 197.262 68.1364C139.514 66.9067 118.3 20.7224 85.8244 20.7224Z"/>
+</clipPath></defs>
+</svg>

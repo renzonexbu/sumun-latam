@@ -98,7 +98,7 @@ export function PropuestaSection() {
           })}
         </div>
 
-        <div className={styles.ola} aria-hidden="true">
+        <div className={styles.ola} aria-hidden="true" data-parallax="slow">
           <Image
             src="/images/propuesta/ola.png"
             alt=""

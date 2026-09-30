@@ -1,0 +1,305 @@
+/* Bloque "Los pilares fundamentales…" de Figma: 1358 × 740 (título + tarjeta de 607). */
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  align-items: center;
+  max-width: 1358px;
+  margin: 111px auto 0;
+  padding: 0 16px;
+  box-sizing: content-box;
+}
+
+.title {
+  max-width: 641px;
+  margin: 0;
+  color: #003d4c;
+  font-family: var(--font-figtree), sans-serif;
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 49px;
+  text-align: center;
+  text-box: trim-both cap alphabetic;
+}
+
+.card {
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  height: 605px;
+  border: 1px solid #e3e3e3;
+  border-radius: 50px;
+  background: #fff;
+  box-shadow: 9.571px 9.571px 31.107px 11px #c2c2c2;
+}
+
+/* Pestañas */
+.tabs {
+  position: absolute;
+  top: 78px;
+  left: 6.33%;
+  display: flex;
+  flex-direction: column;
+  gap: 19px;
+  align-items: flex-start;
+}
+
+.tab,
+.tabActive {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 92.324px;
+  font-family: var(--font-manrope), sans-serif;
+  font-size: 20px;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    opacity 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.tab {
+  padding: 22px 24px;
+  border: 1px solid #696969;
+  background: transparent;
+  color: #696969;
+  font-weight: 500;
+  line-height: 24px;
+  opacity: 0.5;
+  text-box: trim-both cap alphabetic;
+}
+
+.tab:hover {
+  opacity: 0.8;
+}
+
+.tabActive {
+  padding: 15px 24px;
+  border: 0;
+  background: #0095cd;
+  color: #fefefe;
+  font-weight: 600;
+  line-height: 1.5;
+  box-shadow:
+    inset 0 4px 40.5px -16px #fff5ee,
+    inset 0 0 12px 0 #fff;
+  cursor: default;
+}
+
+.tab:focus-visible,
+.tabActive:focus-visible {
+  outline: 2px solid #003d4c;
+  outline-offset: 3px;
+}
+
+/* Contenido de la pestaña */
+.panel,
+.panelConSubtitulo {
+  position: absolute;
+  top: 78px;
+  left: 34.17%;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: flex-start;
+  width: 378px;
+  color: #003d4c;
+  animation: fade-in 0.35s ease;
+}
+
+/* High Tech tiene subtítulo y en Figma arranca más arriba (py 56 dentro de la fila). */
+.panelConSubtitulo {
+  top: 56px;
+}
+
+.copy {
+  display: flex;
+  flex-direction: column;
+  gap: 33px;
+}
+
+.heading {
+  display: flex;
+  flex-direction: column;
+  gap: 27px;
+}
+
+.panelTitle {
+  width: 378px;
+  margin: 0;
+  font-family: var(--font-figtree), sans-serif;
+  font-size: 35px;
+  font-weight: 600;
+  line-height: 37px;
+  text-box: trim-both cap alphabetic;
+}
+
+.panelSubtitle {
+  width: 340px;
+  margin: 0;
+  font-family: var(--font-manrope), sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 26px;
+  text-box: trim-both cap alphabetic;
+}
+
+.panelText {
+  width: 349px;
+  margin: 0;
+  font-family: var(--font-manrope), sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  text-box: trim-both cap alphabetic;
+}
+
+/* En el render de Figma el texto del link queda alineado con el párrafo. */
+.link {
+  display: flex;
+  padding: 12px 0;
+  border-radius: 100px;
+  color: #0095cd;
+  font-family: var(--font-roboto), sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  text-decoration: underline;
+  text-underline-position: from-font;
+  white-space: nowrap;
+  transition: color 0.2s ease;
+}
+
+.link:hover {
+  color: #003d4c;
+}
+
+/* Mockups */
+.visualHighTech,
+.visualCurricular {
+  position: absolute;
+  animation: fade-in 0.45s ease;
+}
+
+.visualHighTech {
+  top: 0;
+  left: calc(6.33% + 761px);
+}
+
+.visualCurricular {
+  top: 46px;
+  left: 64.29%;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+
+@media (max-width: 1340px) {
+  .visualHighTech,
+  .visualCurricular {
+    zoom: 0.85;
+  }
+
+  .visualHighTech {
+    left: auto;
+    right: 0;
+  }
+
+  .visualCurricular {
+    left: auto;
+    right: 2%;
+  }
+}
+
+@media (max-width: 1100px) {
+  .section {
+    margin-top: 80px;
+  }
+
+  .title {
+    font-size: 36px;
+    line-height: 40px;
+  }
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    height: auto;
+    padding: 32px 24px 0;
+    overflow: hidden;
+    border-radius: 32px;
+  }
+
+  .tabs {
+    position: static;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .tab,
+  .tabActive {
+    font-size: 16px;
+  }
+
+  .tab {
+    padding: 14px 18px;
+  }
+
+  .tabActive {
+    padding: 10px 18px;
+  }
+
+  .panel,
+  .panelConSubtitulo {
+    position: static;
+    width: auto;
+  }
+
+  .panelTitle,
+  .panelSubtitle,
+  .panelText {
+    width: auto;
+  }
+
+  .panelTitle {
+    font-size: 28px;
+    line-height: 31px;
+  }
+
+  .visualHighTech,
+  .visualCurricular {
+    position: relative;
+    top: auto;
+    left: auto;
+    right: auto;
+    align-self: center;
+    zoom: 0.8;
+  }
+}
+
+@media (max-width: 480px) {
+  .visualHighTech,
+  .visualCurricular {
+    zoom: 0.62;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .panel,
+  .panelConSubtitulo,
+  .visualHighTech,
+  .visualCurricular {
+    animation: none;
+  }
+}

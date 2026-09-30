@@ -1,0 +1,33 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="409.2" height="123.481" viewBox="0 0 409.2 123.481" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Group 186">
+<g id="Frame 2147238276" filter="url(#filter0_f_0_81)">
+<mask id="path-1-inside-1_0_81" fill="white">
+<path d="M13.6 13.6H395.6V109.881H13.6V13.6Z"/>
+</mask>
+<path d="M13.6 13.6H395.6V109.881H13.6V13.6Z" fill="url(#paint0_linear_0_81)"/>
+<path d="M395.6 109.881V108.881H13.6V109.881V110.881H395.6V109.881Z" fill="#DAF5FE" mask="url(#path-1-inside-1_0_81)"/>
+<path id="Vector 34" d="M13.6 69.6H285.1" stroke="#DAF5FE" stroke-width="3"/>
+</g>
+<line id="Line 7" x1="13.6" y1="111.1" x2="395.6" y2="111.1" stroke="url(#paint1_linear_0_81)"/>
+</g>
+<defs>
+<filter id="filter0_f_0_81" x="0" y="0" width="409.2" height="123.481" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="6.8" result="effect1_foregroundBlur_0_81"/>
+</filter>
+<linearGradient id="paint0_linear_0_81" x1="204.6" y1="13.6" x2="204.6" y2="109.881" gradientUnits="userSpaceOnUse">
+<stop offset="0.168269" stop-color="#BEE0F5" stop-opacity="0"/>
+<stop offset="0.55" stop-color="#BEE0F5" stop-opacity="0.13"/>
+<stop offset="0.823491" stop-color="#C5ECFE" stop-opacity="0.91"/>
+<stop offset="1" stop-color="#F6FFFF"/>
+</linearGradient>
+<linearGradient id="paint1_linear_0_81" x1="13.6" y1="112.1" x2="395.6" y2="112.1" gradientUnits="userSpaceOnUse">
+<stop stop-color="white" stop-opacity="0"/>
+<stop offset="0.211538" stop-color="#DAF5FE"/>
+<stop offset="0.553737" stop-color="#0095CD"/>
+<stop offset="0.783654" stop-color="#DAF5FE"/>
+<stop offset="1" stop-color="#FBFBFB" stop-opacity="0"/>
+</linearGradient>
+</defs>
+</svg>

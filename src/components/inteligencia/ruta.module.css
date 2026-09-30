@@ -1,0 +1,379 @@
+/* Bloque de Figma: 1179 de ancho en (128, 4205); tarjeta de 1179 × 498. */
+.section {
+  max-width: 1179px;
+  margin: 110px auto 0;
+  padding: 0 16px 193px;
+  box-sizing: content-box;
+  transform: translateX(-2px);
+}
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  color: #003d4c;
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-figtree), sans-serif;
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 49px;
+  text-box: trim-both cap alphabetic;
+}
+
+.lead {
+  margin: 0;
+  font-family: var(--font-manrope), sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 26px;
+  text-box: trim-both cap alphabetic;
+}
+
+.card {
+  position: relative;
+  height: 498px;
+  margin-top: 50px;
+  overflow: hidden;
+  border-radius: 20px;
+  background: #006678;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.7s ease,
+    visibility 0s linear 0.7s;
+}
+
+.slideActive {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.7s ease;
+}
+
+.foto {
+  position: absolute;
+  pointer-events: none;
+}
+
+.foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.fotoPartida {
+  top: -135px;
+  left: 0;
+  width: 1767px;
+  height: 993.94px;
+}
+
+/* En Figma estas dos fotos están espejadas horizontalmente. */
+.fotoEstaciones {
+  top: -168px;
+  left: calc(50% - 94.94px - 684.56px);
+  width: 1369.13px;
+  height: 722px;
+  transform: scaleX(-1);
+}
+
+.fotoLlegada {
+  top: calc(50% - 0.13px - 310.87px);
+  left: 0;
+  width: 1179px;
+  height: 621.74px;
+  transform: scaleX(-1);
+}
+
+.tinte {
+  position: absolute;
+  top: -12px;
+  left: -35px;
+  width: 1341px;
+  height: 535px;
+  background: #43bbe8;
+  opacity: 0.2;
+}
+
+.degradadoIzq,
+.degradadoDer {
+  position: absolute;
+  top: 0;
+  height: 498px;
+  backdrop-filter: blur(4px);
+}
+
+/* En Figma el desenfoque de fondo se atenúa con la transparencia del degradado: se emula con una máscara. */
+.degradadoIzq {
+  left: 0;
+  width: 720px;
+  background: linear-gradient(90deg, rgba(0, 61, 76, 0.8) 0%, rgba(0, 61, 76, 0) 100%);
+  -webkit-mask-image: linear-gradient(90deg, #000 0%, transparent 100%);
+  mask-image: linear-gradient(90deg, #000 0%, transparent 100%);
+}
+
+.degradadoDer {
+  right: 0;
+  width: 920px;
+  background: linear-gradient(270deg, rgba(0, 61, 76, 0.8) 0%, rgba(0, 61, 76, 0) 100%);
+  -webkit-mask-image: linear-gradient(270deg, #000 0%, transparent 100%);
+  mask-image: linear-gradient(270deg, #000 0%, transparent 100%);
+}
+
+/* Líneas punteadas del recorrido */
+.linea {
+  position: absolute;
+  max-width: none;
+  pointer-events: none;
+}
+
+.linea_partida {
+  top: 127.5px;
+  left: 186px;
+}
+
+.linea_estaciones {
+  top: 127.5px;
+  left: -496px;
+}
+
+.linea_estaciones_b {
+  top: 127.5px;
+  left: 646px;
+  transform: scaleY(-1);
+}
+
+.linea_llegada {
+  top: 108px;
+  left: -910px;
+  transform: scaleX(-1);
+}
+
+.contenido {
+  position: absolute;
+  top: 50%;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  color: #fefefe;
+  transform: translateY(-50%);
+}
+
+.contenido_partida {
+  left: 80px;
+  gap: 50px;
+  width: 585px;
+  margin-top: 0.5px;
+}
+
+.contenido_estaciones {
+  left: 521px;
+  gap: 50px;
+  width: 585px;
+  margin-top: 6.5px;
+}
+
+.contenido_llegada {
+  left: 106px;
+  gap: 26px;
+  width: 646px;
+  margin-top: -0.5px;
+}
+
+.icono {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 100px;
+  height: 100px;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(2px);
+}
+
+.etapaTitle {
+  margin: 0;
+  font-family: var(--font-figtree), sans-serif;
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 49px;
+  text-box: trim-both cap alphabetic;
+}
+
+.texto,
+.textoLlegada,
+.textoItem {
+  margin: 0;
+  font-family: var(--font-figtree), sans-serif;
+  font-weight: 400;
+  text-box: trim-both cap alphabetic;
+}
+
+.texto {
+  font-size: 30px;
+  line-height: 30px;
+}
+
+.textoLlegada {
+  font-size: 30px;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.textoItem {
+  font-size: 26px;
+  line-height: normal;
+}
+
+.textoItem strong {
+  font-weight: 700;
+}
+
+.textoItem b {
+  font-weight: 800;
+}
+
+/* Navegación entre etapas (no está en Figma: se agrega para poder elegir la etapa). */
+.pasos {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 24px;
+}
+
+.paso {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: 8px 16px 8px 8px;
+  border: 1px solid #d5e3e6;
+  border-radius: 100px;
+  background: #fff;
+  color: #006678;
+  font-family: var(--font-manrope), sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.paso:hover {
+  border-color: #006678;
+}
+
+.pasoActivo {
+  border-color: #006678;
+  background: #006678;
+  color: #fff;
+}
+
+.pasoNum {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: rgba(0, 102, 120, 0.12);
+  font-size: 12px;
+}
+
+.pasoActivo .pasoNum {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+@media (max-width: 1100px) {
+  .section {
+    margin-top: 80px;
+    padding-bottom: 120px;
+    transform: none;
+  }
+
+  .title {
+    font-size: 34px;
+    line-height: 38px;
+  }
+
+  .lead {
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  .card {
+    height: 560px;
+  }
+
+  .degradadoIzq,
+  .degradadoDer {
+    right: 0;
+    left: 0;
+    width: auto;
+    background: rgba(0, 61, 76, 0.6);
+  }
+
+  .linea {
+    display: none;
+  }
+
+  .contenido,
+  .contenido_partida,
+  .contenido_estaciones,
+  .contenido_llegada {
+    right: 24px;
+    left: 24px;
+    gap: 20px;
+    width: auto;
+  }
+
+  .icono {
+    width: 64px;
+    height: 64px;
+  }
+
+  .icono img {
+    width: 32px;
+    height: 32px;
+  }
+
+  .etapaTitle {
+    font-size: 32px;
+    line-height: 34px;
+  }
+
+  .texto,
+  .textoLlegada {
+    font-size: 20px;
+    line-height: 24px;
+    white-space: normal;
+  }
+
+  .textoItem {
+    font-size: 17px;
+  }
+
+  .pasos {
+    flex-wrap: wrap;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .slide,
+  .slideActive {
+    transition: none;
+  }
+}

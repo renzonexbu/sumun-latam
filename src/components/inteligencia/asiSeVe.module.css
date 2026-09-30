@@ -1,0 +1,380 @@
+/* Posiciones relativas a y = 1762 (título) del frame de Figma; termina en y = 2452. */
+.section {
+  padding-top: 121px;
+}
+
+.stage {
+  position: relative;
+  max-width: 1439px;
+  height: 690px;
+  margin: 0 auto;
+}
+
+.title {
+  position: absolute;
+  top: 0;
+  left: 128px;
+  width: 432px;
+  margin: 0;
+  color: #003d4c;
+  font-family: var(--font-figtree), sans-serif;
+  font-size: 35px;
+  font-weight: 600;
+  line-height: 37px;
+  text-box: trim-both cap alphabetic;
+}
+
+.cards {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.card {
+  position: absolute;
+  top: 116px;
+  height: 574px;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.card::after {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: inset 5px 10px 10px 0 rgba(233, 233, 233, 0.25);
+  content: "";
+  pointer-events: none;
+}
+
+.art {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.art img,
+.art > span {
+  position: absolute;
+  max-width: none;
+}
+
+.velo {
+  background: rgba(250, 250, 250, 0.27);
+}
+
+.cardText {
+  position: absolute;
+  top: 436px;
+  left: 33.39px;
+  z-index: 1;
+  width: 221px;
+  margin: 0;
+  color: #fefefe;
+  font-family: var(--font-figtree), sans-serif;
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 30px;
+  text-box: trim-both cap alphabetic;
+}
+
+.cardText strong {
+  font-weight: 800;
+}
+
+.cardTextTop {
+  top: 51px;
+  left: 29px;
+  width: 323px;
+}
+
+/* Estudiantes */
+.cardEstudiantes {
+  left: 129px;
+  width: 380px;
+  /* Paradas ordenadas (en Figma vienen desordenadas). */
+  background: linear-gradient(
+    258.66deg,
+    #a2d2ee 1.81%,
+    #c8e2f9 6.56%,
+    #e2e2f0 19.56%,
+    #69badd 48.42%,
+    #6cbcdf 85.44%,
+    #0083af 109.66%
+  );
+}
+
+.planeta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  overflow: hidden;
+  border: 1.936px solid #fff;
+  border-radius: 50%;
+  background: linear-gradient(-33.95deg, rgba(255, 225, 210, 0.13) 9.69%, rgba(3, 192, 255, 0.2) 95.38%, #fff 112.62%);
+}
+
+.planeta img,
+.vidrio img,
+.tile img {
+  position: relative;
+}
+
+.fotoCirculo {
+  overflow: hidden;
+  border-radius: 50%;
+  background: #fff;
+}
+
+.fotoCirculo::after {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow:
+    inset 0 12.03px 121.78px -48.11px #fff,
+    inset 0 -72.17px 72.17px -48.11px #fff,
+    inset 0 0 36.08px 0 #daf5fe;
+  content: "";
+}
+
+.capa {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: inherit;
+}
+
+.capa img {
+  position: absolute;
+  max-width: none;
+}
+
+.vidrio {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  overflow: hidden;
+  border: solid #fff;
+  border-radius: 50%;
+}
+
+.vidrioAtom {
+  border-width: 2.586px;
+  background: linear-gradient(
+    196.6deg,
+    rgba(255, 235, 225, 0.026) 2.63%,
+    rgba(239, 221, 212, 0.026) 42.97%,
+    rgba(169, 209, 223, 0.067) 79.57%,
+    rgba(87, 196, 236, 0.114) 79.59%,
+    rgba(255, 255, 255, 0.2) 95.59%
+  );
+  box-shadow:
+    31.03px 31.03px 100.84px 0 rgba(158, 158, 158, 0.22),
+    inset 12.93px 25.86px 25.86px 0 rgba(233, 233, 233, 0.25);
+}
+
+.vidrioChat,
+.vidrioChart {
+  background: linear-gradient(
+    196.6deg,
+    rgba(255, 235, 225, 0.042) 2.63%,
+    rgba(239, 221, 212, 0.042) 19.96%,
+    rgba(87, 196, 236, 0.32) 69.76%
+  );
+}
+
+.vidrioChat {
+  border-width: 2.256px;
+  filter: blur(3.532px);
+  box-shadow: 27.08px 27.08px 88px 0 rgba(158, 158, 158, 0.22);
+}
+
+.vidrioChart {
+  border-width: 1.615px;
+  filter: blur(0.397px);
+  box-shadow: 19.39px 19.39px 63px 0 rgba(158, 158, 158, 0.22);
+}
+
+/* Maestros */
+.cardMaestros {
+  left: 529px;
+  width: 381px;
+  background: #a4a59d;
+}
+
+.veloRadial {
+  background-size: 100% 100%;
+}
+
+.fotoMaestra {
+  overflow: hidden;
+}
+
+.fotoMaestra img {
+  position: absolute;
+  top: 12.47%;
+  left: 0;
+  width: 100%;
+  height: 87.53%;
+}
+
+.bandaDifusa {
+  background: linear-gradient(169.44deg, rgba(214, 214, 214, 0) 22.96%, rgba(173, 173, 173, 0.25) 50.87%);
+  filter: blur(37.9px);
+  opacity: 0.8;
+  transform: rotate(180deg);
+}
+
+.pildora {
+  box-sizing: border-box;
+  overflow: hidden;
+  border: 0.75px solid rgba(255, 255, 255, 0.76);
+}
+
+.pildoraFrente {
+  border: 0;
+  filter: drop-shadow(10.06px 10.06px 16.35px rgba(158, 158, 158, 0.22));
+}
+
+.tile {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  border: 0.7px solid #fefefe;
+  background: rgba(255, 255, 255, 0.14);
+  box-shadow:
+    inset 3.4px 6.8px 6.8px 0 rgba(233, 233, 233, 0.25),
+    inset -4.08px -5.44px 6.8px 0 rgba(248, 248, 248, 0.25);
+}
+
+.tileFrente {
+  border-width: 0.839px;
+  background: rgba(226, 226, 240, 0.44);
+  box-shadow:
+    inset 4.19px 8.39px 8.39px 0 rgba(233, 233, 233, 0.25),
+    inset -5.03px -6.71px 8.39px 0 rgba(248, 248, 248, 0.25),
+    inset 10.56px 27.55px 21.32px 0 rgba(146, 199, 171, 0.33);
+}
+
+.pildoraTitle,
+.pildoraSub {
+  position: absolute;
+  font-family: var(--font-manrope), sans-serif;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+.pildoraTitle {
+  font-weight: 600;
+}
+
+.pildoraSub {
+  font-weight: 500;
+}
+
+/* Escuelas */
+.cardEscuelas {
+  top: 114px;
+  left: 934px;
+  width: 380px;
+  background: linear-gradient(201.97deg, #fff0e5 6.06%, #fff 16.23%, #ff6f00 90.34%);
+}
+
+.escuelasDegradado {
+  background: linear-gradient(180.59deg, rgba(255, 255, 255, 0) 30.85%, rgba(255, 240, 229, 0.3) 61.72%, #ff6f00 104.59%);
+}
+
+/* Moebius 3D por encima de la tarjeta de Escuelas: 593 × 590 en (957, 1730). */
+.moebius {
+  position: absolute;
+  top: -32px;
+  left: 957px;
+  z-index: 2;
+  width: 593px;
+  height: 590px;
+  pointer-events: none;
+}
+
+.moebius img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 1480px) {
+  .moebius {
+    left: auto;
+    right: -110px;
+  }
+}
+
+@media (max-width: 1360px) {
+  .stage {
+    zoom: 0.9;
+  }
+}
+
+@media (max-width: 1200px) {
+  .section {
+    padding: 80px 16px 0;
+  }
+
+  .stage {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    align-items: center;
+    height: auto;
+    zoom: 1;
+  }
+
+  .title {
+    position: static;
+    width: auto;
+    font-size: 30px;
+    line-height: 34px;
+    text-align: center;
+  }
+
+  .cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+
+  .card,
+  .cardEscuelas {
+    position: relative;
+    top: auto;
+    left: auto;
+    flex-shrink: 0;
+  }
+
+  .moebius {
+    top: auto;
+    right: -120px;
+    bottom: -60px;
+    top: -40px;
+    bottom: auto;
+    z-index: 0;
+    width: 260px;
+    height: 258px;
+  }
+
+  .cards {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+@media (max-width: 420px) {
+  .card {
+    zoom: 0.88;
+  }
+}

@@ -33,6 +33,7 @@ export function TutorSection() {
   return (
     <section
       ref={sectionRef}
+      id="tutor-ia"
       className={styles.section}
       aria-labelledby="tutor-title"
     >

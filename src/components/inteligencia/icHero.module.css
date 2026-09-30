@@ -1,0 +1,143 @@
+/* Hero de Figma: 1439 × 834, fondo azul petróleo. */
+.section {
+  position: relative;
+  z-index: 2;
+  overflow-x: clip;
+  background: #003d4c;
+}
+
+.stage {
+  position: relative;
+  max-width: 1439px;
+  height: 834px;
+  margin: 0 auto;
+}
+
+/*
+ * ola_1: 1760 × 1284 en (-18, -211) del frame de 1439; llega hasta y = 1073 (debajo del hero).
+ * --base es el ancho de referencia: 1439px o el ancho de la ventana si es mayor,
+ * así la ola escala en pantallas grandes y siempre toca los bordes.
+ */
+.ola {
+  --base: max(1439px, 100vw);
+
+  position: absolute;
+  top: calc(var(--base) * -0.14663);
+  left: calc((100% - var(--base)) / 2 + var(--base) * -0.01251);
+  width: calc(var(--base) * 1.22307);
+  aspect-ratio: 1760 / 1284;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.ola img {
+  position: absolute;
+  top: 5.98%;
+  left: -8.51%;
+  width: 100.13%;
+  max-width: none;
+  height: 93.99%;
+}
+
+.copy {
+  position: absolute;
+  top: 459px;
+  left: 59.97%;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  align-items: flex-start;
+  width: 456px;
+  color: #fefefe;
+}
+
+.tag {
+  margin: 0;
+  padding: 17px;
+  border-radius: 200px;
+  background: #f15a2e;
+  font-family: var(--font-manrope), sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 26px;
+  white-space: nowrap;
+  text-box: trim-both cap alphabetic;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-figtree), sans-serif;
+  font-size: 54px;
+  font-weight: 600;
+  line-height: 58px;
+  text-box: trim-both cap alphabetic;
+}
+
+.lead {
+  max-width: 411px;
+  margin: 0;
+  font-family: var(--font-manrope), sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 26px;
+  text-box: trim-both cap alphabetic;
+}
+
+@media (max-width: 1100px) {
+  .stage {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    padding: 140px 24px 0;
+  }
+
+  .section {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .stage {
+    order: 1;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .ola {
+    position: relative;
+    top: auto;
+    left: -10%;
+    order: 2;
+    width: 150%;
+    margin: 16px 0 -30%;
+  }
+
+  .copy {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: auto;
+    max-width: 560px;
+  }
+
+  .tag {
+    padding: 12px 16px;
+    font-size: 17px;
+  }
+
+  .title {
+    font-size: 40px;
+    line-height: 44px;
+  }
+
+  .lead {
+    font-size: 18px;
+    line-height: 24px;
+  }
+}

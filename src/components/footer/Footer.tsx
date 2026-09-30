@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import styles from "./footer.module.css";
 
 const columnas = [
@@ -11,9 +13,9 @@ const columnas = [
   {
     title: "Conversaciones Sumun",
     links: [
-      { label: "High tech", href: "#" },
-      { label: "Inteligencia curricular", href: "#" },
-      { label: "Cultura de alto desepeño", href: "#" },
+      { label: "High tech", href: "/high-tech" },
+      { label: "Inteligencia curricular", href: "/inteligencia-curricular" },
+      { label: "Cultura de alto desepeño", href: "/cultura-de-alto-desempeno" },
     ],
   },
   {
@@ -57,7 +59,7 @@ export function Footer() {
                 <ul className={styles.links}>
                   {columna.links.map((link) => (
                     <li key={link.label}>
-                      <a href={link.href}>{link.label}</a>
+                      <Link href={link.href}>{link.label}</Link>
                     </li>
                   ))}
                 </ul>

@@ -1,12 +1,29 @@
 /* Va encima del banner: frame de Figma de 1357 × 54 en (42, 39). */
 .header {
-  position: absolute;
+  position: fixed;
   inset: 0 0 auto;
   z-index: 50;
   padding-top: 39px;
+  transition: padding-top 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Al hacer scroll: más arriba y con vidrio esmerilado. */
+.headerScrolled {
+  padding-top: 12px;
+}
+
+.headerScrolled .barPill {
+  background: rgba(254, 254, 254, 0.82);
+  box-shadow: 0 10px 30px -12px rgba(0, 61, 76, 0.25);
+  backdrop-filter: blur(14px) saturate(1.4);
 }
 
 .bar {
+  transition:
+    background-color 0.35s ease,
+    box-shadow 0.35s ease,
+    padding 0.35s ease,
+    border-radius 0.35s ease;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -21,6 +38,12 @@
   max-width: 1357px;
   padding: 12px 12px 12px 21px;
   border-radius: 100px;
+/* Variante "píldora" (páginas con hero oscuro): 1403 × 86 en (18, 39). */
+.barPill {
+  width: calc(100% - 36px);
+  max-width: 1403px;
+  padding: 16px 21px;
+  border-radius: 64px;
   background: #fefefe;
 }
 
@@ -56,7 +79,136 @@
   transition: color 0.2s ease;
 }
 
+/* Los items con submenú son <button>: se les quita el estilo nativo. */
+button.navLink,
+button.panelLink {
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+.navLink {
+  position: relative;
+}
+
+/* Subrayado animado */
+.navLink::after {
+  position: absolute;
+  right: 0;
+  bottom: -4px;
+  left: 0;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #00b9ff, #0083af);
+  content: "";
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
 .navLink:hover {
+  color: #0083af;
+}
+
+.navLink:hover::after,
+.navLinkActive::after {
+  transform: scaleX(1);
+}
+
+.navLinkActive {
+  color: #0083af;
+}
+
+.navLink img {
+  transition: transform 0.3s ease;
+}
+
+.chevronOpen {
+  transform: rotate(180deg);
+}
+
+/* Submenú desplegable */
+.navItem {
+  position: relative;
+}
+
+.dropdown {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  z-index: 10;
+  padding-top: 18px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, -8px);
+  visibility: hidden;
+  transition:
+    opacity 0.22s ease,
+    transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+    visibility 0s linear 0.28s;
+}
+
+.dropdownOpen {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, 0);
+  visibility: visible;
+  transition:
+    opacity 0.22s ease,
+    transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.dropdownList {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 290px;
+  margin: 0;
+  padding: 10px;
+  border: 1px solid #ebebeb;
+  border-radius: 20px;
+  background: rgba(254, 254, 254, 0.96);
+  box-shadow: 0 24px 50px -20px rgba(0, 61, 76, 0.35);
+  backdrop-filter: blur(14px);
+  list-style: none;
+}
+
+.dropdownLink {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  color: #003d4c;
+  font-family: var(--font-manrope), sans-serif;
+  transition:
+    background-color 0.2s ease,
+    translate 0.2s ease;
+}
+
+.dropdownLink:hover,
+.dropdownLink:focus-visible {
+  background: #eef8fc;
+  translate: 4px 0;
+  outline: none;
+}
+
+.dropdownLabel {
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.dropdownDesc {
+  color: #5a7780;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.dropdownLinkActive .dropdownLabel,
+.panelSubLink.dropdownLinkActive {
   color: #0083af;
 }
 
@@ -158,8 +310,30 @@
 
 .panelLink {
   justify-content: space-between;
-  padding: 14px 0;
-  border-bottom: 1px solid #f0f0f0;
+  width: 100%;
+  padding: 14px 0 !important;
+  border-bottom: 1px solid #f0f0f0 !important;
+}
+
+.panelSub {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 6px 0 10px 12px;
+  list-style: none;
+}
+
+.panelSubOpen {
+  animation: panel-in 0.2s ease;
+}
+
+.panelSubLink {
+  display: block;
+  padding: 9px 0;
+  color: #336470;
+  font-family: var(--font-manrope), sans-serif;
+  font-size: 15px;
+  font-weight: 600;
 }
 
 .panelDemo {
@@ -184,6 +358,10 @@
     padding-top: 24px;
   }
 
+  .headerScrolled {
+    padding-top: 10px;
+  }
+
   .bar {
     padding: 0 16px;
   }
@@ -191,6 +369,9 @@
   .solid .bar {
     width: calc(100% - 32px);
     padding: 8px 8px 8px 16px;
+  .barPill {
+    width: calc(100% - 32px);
+    padding: 12px 12px 12px 20px;
   }
 
   .nav,

@@ -1,0 +1,176 @@
+/* Hero de Figma: 1439 × 807, fondo azul petróleo. */
+.section {
+  position: relative;
+  overflow: hidden;
+  background: #003d4c;
+}
+
+.stage {
+  position: relative;
+  max-width: 1439px;
+  height: 807px;
+  margin: 0 auto;
+}
+
+/* Caja 1023.6 × 845.1 en (-106, -50); dentro, el elemento girado de 980.9 × 791.4. */
+.visual {
+  position: absolute;
+  top: -50px;
+  left: -106px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1023.6px;
+  height: 845.1px;
+  pointer-events: none;
+}
+
+.visualInner {
+  position: relative;
+  flex: none;
+  width: 980.9px;
+  height: 791.4px;
+  overflow: hidden;
+  rotate: -3.21deg;
+}
+
+.decor {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 120.87%;
+  max-width: none;
+  height: 100%;
+}
+
+.nino {
+  position: absolute;
+  top: 145px;
+  right: 6.68%;
+  bottom: -12.57px;
+  left: -4.82%;
+}
+
+.nino img {
+  width: 100%;
+  height: 100%;
+}
+
+.copy {
+  position: absolute;
+  top: 387px;
+  left: 807px;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 34px;
+  align-items: flex-start;
+  width: 558px;
+  color: #fefefe;
+}
+
+.tag {
+  margin: 0;
+  padding: 17px;
+  border-radius: 200px;
+  background: #f15a2e;
+  font-family: var(--font-manrope), sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 26px;
+  white-space: nowrap;
+  text-box: trim-both cap alphabetic;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 573px;
+}
+
+.title {
+  width: 634px;
+  margin: 0;
+  font-family: var(--font-figtree), sans-serif;
+  font-size: 54px;
+  font-weight: 600;
+  line-height: 58px;
+  text-box: trim-both cap alphabetic;
+}
+
+.lead {
+  margin: 0;
+  font-family: var(--font-manrope), sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 26px;
+  text-box: trim-both cap alphabetic;
+}
+
+@media (max-width: 1360px) {
+  .copy {
+    left: auto;
+    right: 40px;
+    width: 480px;
+  }
+
+  .text,
+  .title {
+    width: auto;
+  }
+
+  .title {
+    font-size: 46px;
+    line-height: 50px;
+  }
+}
+
+@media (max-width: 1100px) {
+  .stage {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    padding: 140px 24px 0;
+  }
+
+  .copy {
+    position: relative;
+    top: auto;
+    right: auto;
+    left: auto;
+    order: 1;
+    width: auto;
+    max-width: 560px;
+  }
+
+  .tag {
+    padding: 12px 16px;
+    font-size: 17px;
+  }
+
+  .title {
+    font-size: 38px;
+    line-height: 42px;
+  }
+
+  .lead {
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  .visual {
+    position: relative;
+    top: auto;
+    left: 50%;
+    order: 2;
+    width: 640px;
+    height: 528px;
+    margin: 16px 0 -40px;
+    translate: -52% 0;
+  }
+
+  .visualInner {
+    zoom: 0.64;
+  }
+}

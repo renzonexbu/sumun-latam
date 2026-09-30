@@ -48,3 +48,159 @@ body {
 .btn:hover img {
   filter: brightness(0) invert(1);
 }
+
+/* ---------- Movimiento ---------- */
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Las anclas del menú no quedan tapadas por el header fijo. */
+[id] {
+  scroll-margin-top: 110px;
+}
+
+/* Botones: leve elevación al pasar el mouse. */
+.btn {
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    translate 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.btn:hover {
+  translate: 0 -2px;
+  box-shadow: 0 10px 24px -12px rgba(0, 131, 175, 0.55);
+}
+
+.btn:active {
+  translate: 0 0;
+}
+
+/* Entrada al hacer scroll (RevealObserver). Se usa `translate` para no pisar los `transform` de cada componente. */
+[data-reveal="pending"] {
+  opacity: 0 !important;
+}
+
+[data-reveal="in"] {
+  animation: reveal-in 0.85s cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay, 0ms) backwards;
+}
+
+@keyframes reveal-in {
+  from {
+    opacity: 0;
+    translate: 0 32px;
+    filter: blur(6px);
+  }
+}
+
+/* Parallax suave en elementos decorativos ([data-parallax]). */
+@supports (animation-timeline: view()) {
+  [data-parallax] {
+    animation: parallax-y linear both;
+    animation-timeline: view();
+    animation-range: cover;
+  }
+
+  [data-parallax="slow"] {
+    --parallax: 40px;
+  }
+
+  [data-parallax="fast"] {
+    --parallax: 90px;
+  }
+
+  @keyframes parallax-y {
+    from {
+      translate: 0 var(--parallax, 60px);
+    }
+    to {
+      translate: 0 calc(var(--parallax, 60px) * -1);
+    }
+  }
+
+  /* Barra de progreso de lectura */
+  .scroll-progress {
+    position: fixed;
+    inset: 0 0 auto;
+    z-index: 60;
+    height: 3px;
+    background: linear-gradient(90deg, #00b9ff 0%, #0083af 45%, #f15a2e 100%);
+    transform-origin: 0 50%;
+    pointer-events: none;
+    animation: scroll-progress linear both;
+    animation-timeline: scroll(root);
+  }
+
+  @keyframes scroll-progress {
+    from {
+      transform: scaleX(0);
+    }
+    to {
+      transform: scaleX(1);
+    }
+  }
+}
+
+/* Transición entre páginas (PageTransition + View Transitions API). */
+::view-transition {
+  pointer-events: none;
+}
+
+::view-transition-old(.page-exit) {
+  animation: page-out 0.28s cubic-bezier(0.4, 0, 1, 1) both;
+}
+
+::view-transition-new(.page-enter) {
+  animation: page-in 0.55s cubic-bezier(0.22, 1, 0.36, 1) 0.12s both;
+}
+
+@keyframes page-out {
+  to {
+    opacity: 0;
+    translate: 0 -24px;
+    filter: blur(4px);
+  }
+}
+
+@keyframes page-in {
+  from {
+    opacity: 0;
+    translate: 0 36px;
+    filter: blur(6px);
+  }
+}
+
+/* El header queda fijo durante la transición. */
+::view-transition-group(site-header) {
+  animation: none;
+  z-index: 100;
+}
+
+::view-transition-old(site-header) {
+  display: none;
+}
+
+::view-transition-new(site-header) {
+  animation: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  [data-parallax],
+  .scroll-progress {
+    animation: none !important;
+  }
+
+  ::view-transition-old(*),
+  ::view-transition-new(*),
+  ::view-transition-group(*) {
+    animation-duration: 0s !important;
+    animation-delay: 0s !important;
+  }
+}

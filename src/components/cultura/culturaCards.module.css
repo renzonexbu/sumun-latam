@@ -1,0 +1,368 @@
+/* Sección "Así se ve la Cultura Sumun": 1448 × 1204 en y = 2318. */
+.section {
+  position: relative;
+  padding: 129px 16px 119px;
+  background: linear-gradient(
+    -9.04deg,
+    #fbfbfb 8.96%,
+    #fff5f0 54.11%,
+    #fed0a4 78.74%,
+    #f3b98d 91.05%
+  );
+}
+
+.fundido {
+  position: absolute;
+  top: -50px;
+  left: 0;
+  width: 1498px;
+  max-width: none;
+  height: 149px;
+  object-fit: cover;
+  filter: blur(33.6px);
+  pointer-events: none;
+}
+
+.title {
+  position: relative;
+  margin: 0 auto;
+  color: #004656;
+  font-family: var(--font-figtree), sans-serif;
+  font-size: 54px;
+  font-weight: 600;
+  line-height: 58px;
+  text-align: center;
+  text-box: trim-both cap alphabetic;
+}
+
+.grid {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: min(1182px, 100%);
+  margin: 59px auto 0;
+  transform: translateX(-4px);
+}
+
+.row1 {
+  display: flex;
+  gap: 20px;
+  height: 481px;
+}
+
+.row2 {
+  display: flex;
+  gap: 14px;
+  height: 364px;
+}
+
+.card {
+  position: relative;
+  flex: 1 0 0;
+  min-width: 0;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 0 6px 0 rgba(127, 127, 127, 0.25);
+}
+
+.card img {
+  max-width: none;
+}
+
+.cardTitle,
+.cardSub {
+  position: absolute;
+  left: 26px;
+  z-index: 2;
+  margin: 0;
+  color: #fefefe;
+}
+
+.cardTitle {
+  top: 80px;
+  width: 336px;
+  font-family: var(--font-figtree), sans-serif;
+  font-size: 36px;
+  font-weight: 600;
+  line-height: 1.2;
+  transform: translateY(-50%);
+}
+
+.cardSub {
+  bottom: 46px;
+  font-family: var(--font-manrope), sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.oscuro {
+  color: #003d4c;
+}
+
+/* Mejor clima escolar */
+.cardClima {
+  background: #004656;
+}
+
+.cardClima .cardTitle {
+  width: 261px;
+  line-height: 48px;
+  text-box: trim-both cap alphabetic;
+}
+
+.corazon {
+  position: absolute;
+  top: 101px;
+  left: 140px;
+  width: 409px;
+  height: 361px;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+.subClima {
+  width: 184px;
+  line-height: normal;
+  text-box: trim-both cap alphabetic;
+}
+
+/* Mayor sentido de pertenencia */
+.cardPertenencia {
+  background: #fefefe;
+}
+
+.fadeArriba {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 377px;
+  height: 228px;
+  background: linear-gradient(0deg, rgba(251, 251, 251, 0) 0%, #fbfbfb 100%);
+  transform: translateX(calc(-50% - 0.5px));
+}
+
+.subPertenencia {
+  width: 150px;
+}
+
+.onda {
+  position: absolute;
+  top: 141px;
+  left: 49.33px;
+  z-index: 1;
+  width: 459px;
+  height: 330px;
+  pointer-events: none;
+}
+
+.onda img,
+.anillos img,
+.comunidadFoto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Equipos cohesionados */
+.cardEquipos {
+  flex: 0 0 380.67px;
+  background: #004656;
+}
+
+.anillos {
+  position: absolute;
+  inset: 0;
+}
+
+/* En Figma la imagen se estira para llenar la tarjeta (modo "fill"). */
+.anillos img {
+  object-fit: fill;
+}
+
+.cardEquipos .cardTitle,
+.cardEquipos .cardSub {
+  left: 25.67px;
+}
+
+.subEquipos {
+  width: 277px;
+}
+
+/* Estudiantes comprometidos */
+.cardEstudiantes {
+  background: linear-gradient(233.06deg, #fbfbfb 2.1%, #fcf9f7 49.91%, #fbfafa 91.54%);
+}
+
+.titleEstudiantes {
+  top: 38px;
+  font-size: 40px;
+  transform: none;
+}
+
+.subEstudiantes {
+  bottom: 44px;
+}
+
+.chart {
+  position: absolute;
+  top: 85px;
+  left: 265px;
+  width: 443.06px;
+  height: 295px;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.chartSvg {
+  position: absolute;
+  top: -8.52px;
+  left: calc(-15.7px - 8.83px);
+}
+
+.burbujaChart {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  width: 64.87px;
+  height: 64.87px;
+  padding-top: 7.9px;
+  border: 1.272px solid rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow:
+    2.54px 5.09px 10.18px 0 rgba(83, 83, 83, 0.05),
+    inset -1.06px -1.06px 3.16px 0 rgba(249, 249, 249, 0.5),
+    inset 1.06px 1.06px 3.16px 0 rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(0.73px);
+  color: #003d4c;
+  font-family: var(--font-manrope), sans-serif;
+  font-size: 10.18px;
+}
+
+/* Comunidad más humana y feliz */
+.cardComunidad {
+  filter: drop-shadow(0 0 3px rgba(127, 127, 127, 0.25));
+  box-shadow: none;
+}
+
+.comunidadFoto {
+  position: absolute;
+  top: 0;
+  left: -45px;
+  width: 726px;
+  height: 483px;
+}
+
+.comunidadVelo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.titleComunidad {
+  top: 36px;
+  transform: none;
+}
+
+.subComunidad {
+  bottom: 41px;
+  width: 515px;
+}
+
+.vidrio {
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  overflow: hidden;
+  border: solid rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.vidrioCabeza {
+  top: -30px;
+  left: 501px;
+  width: 131px;
+  height: 131px;
+  border-width: 2.569px;
+  box-shadow:
+    5.14px 10.28px 20.55px 0 rgba(83, 83, 83, 0.05),
+    inset -2.13px -2.13px 6.39px 0 rgba(249, 249, 249, 0.5),
+    inset 2.13px 2.13px 6.39px 0 rgba(255, 255, 255, 0.5);
+  filter: blur(2px);
+}
+
+.vidrioManos {
+  top: 277px;
+  left: 484px;
+  width: 81px;
+  height: 81px;
+  border-width: 1.588px;
+  box-shadow:
+    3.18px 6.35px 12.71px 0 rgba(83, 83, 83, 0.05),
+    inset -1.32px -1.32px 3.95px 0 rgba(249, 249, 249, 0.5),
+    inset 1.32px 1.32px 3.95px 0 rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(0.92px);
+}
+
+@media (max-width: 1100px) {
+  .section {
+    padding: 80px 16px;
+  }
+
+  .title {
+    font-size: 36px;
+    line-height: 40px;
+  }
+
+  .grid {
+    margin-top: 40px;
+    transform: none;
+  }
+
+  .row1,
+  .row2 {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .card,
+  .cardEquipos {
+    flex: none;
+    height: 481px;
+  }
+
+  .row2 .card {
+    height: 364px;
+  }
+
+  .chart {
+    top: auto;
+    bottom: -120px;
+    left: auto;
+    right: -200px;
+    opacity: 0.5;
+  }
+
+  .subComunidad {
+    width: auto;
+    right: 26px;
+  }
+
+  .vidrioCabeza {
+    left: auto;
+    right: -40px;
+  }
+
+  .vidrioManos {
+    left: auto;
+    right: 20px;
+  }
+}
