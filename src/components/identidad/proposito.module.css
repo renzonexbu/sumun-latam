@@ -1,0 +1,98 @@
+/*
+ * Frame de 1440 × 710. --px = 1px de Figma.
+ * ponytail: posiciones medidas de la captura, confirmar con el nodo de Figma.
+ */
+.section {
+  --px: calc(100vw / 1440);
+  position: relative;
+  min-height: calc(710 * var(--px));
+  overflow: hidden;
+  padding: calc(316 * var(--px)) 24px 80px calc(754 * var(--px));
+  background: #003d4c;
+}
+
+/* Figma: 843px de ancho, espejada (scaleX(-1)), sale por el borde izquierdo. */
+.imagen {
+  position: absolute;
+  top: calc(121 * var(--px));
+  left: calc(-125 * var(--px));
+  width: calc(843 * var(--px));
+  max-width: none;
+  height: auto;
+  /* Arranca fuera por la izquierda; el scaleX(-1) de Figma se mantiene en ambos estados. */
+  opacity: 0;
+  transform: translateX(-60%) scaleX(-1);
+  transition:
+    transform 1.3s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.8s ease;
+  pointer-events: none;
+}
+
+.section[data-revealed] .imagen {
+  opacity: 1;
+  transform: scaleX(-1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .imagen {
+    transition: none;
+  }
+}
+
+.texts {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  width: min(500px, 100%);
+  color: #fefefe;
+}
+
+.eyebrow {
+  margin: 0;
+  color: #f15a2e;
+  font-family: var(--font-manrope), sans-serif;
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 33px;
+}
+
+/* Tokens normal-title (48/49) y small-subtitle (30/30), Figtree SemiBold. */
+.title,
+.lead {
+  margin: 0;
+  font-family: var(--font-figtree), sans-serif;
+  font-weight: 600;
+}
+
+.title {
+  font-size: 48px;
+  line-height: 49px;
+}
+
+.lead {
+  font-size: 30px;
+  line-height: 30px;
+}
+
+@media (max-width: 900px) {
+  .section {
+    padding: 70vw 24px 80px;
+  }
+
+  .imagen {
+    top: 0;
+    left: -10vw;
+    width: 100vw;
+  }
+
+  .title {
+    font-size: 38px;
+    line-height: 1.1;
+  }
+
+  .lead {
+    font-size: 24px;
+    line-height: 1.15;
+  }
+}

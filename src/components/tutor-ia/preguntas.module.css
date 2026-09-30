@@ -1,0 +1,127 @@
+/* Frame de 1440: padding 133 / 110 / 148 / 128, columnas de 527 y 584 (hueco de 91). */
+.section {
+  display: grid;
+  grid-template-columns: 527fr 584fr;
+  column-gap: calc(91 / 1440 * 100vw);
+  align-items: center;
+  padding: 133px calc(110 / 1440 * 100vw) 148px calc(128 / 1440 * 100vw);
+  background: #fff;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 31px;
+  interpolate-size: allow-keywords;
+}
+
+.item {
+  color: #9babaf;
+  font-family: var(--font-manrope), sans-serif;
+}
+
+.summary {
+  display: flex;
+  align-items: flex-start;
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 1.4;
+  list-style: none;
+  cursor: pointer;
+  transition:
+    color 0.3s ease,
+    font-size 0.3s ease;
+}
+
+.summary::-webkit-details-marker {
+  display: none;
+}
+
+.summary:hover,
+.item[open] .summary {
+  color: #0095cd;
+}
+
+.item[open] .summary {
+  font-size: 24px;
+}
+
+/* La flecha entra abriendo su espacio (36px + 16px de gap); cerrada no suma alto a la fila. */
+.arrow {
+  flex-shrink: 0;
+  width: 0;
+  height: 0;
+  margin-right: 0;
+  opacity: 0;
+  transition:
+    width 0.3s ease,
+    height 0.3s ease,
+    margin-right 0.3s ease,
+    opacity 0.3s ease;
+}
+
+.item[open] .arrow {
+  width: 36px;
+  height: 36px;
+  margin-right: 16px;
+  opacity: 1;
+}
+
+/* Apertura animada donde el navegador lo soporta; si no, abre al instante. */
+.item::details-content {
+  block-size: 0;
+  overflow: hidden;
+  transition:
+    block-size 0.35s ease,
+    content-visibility 0.35s allow-discrete;
+}
+
+.item[open]::details-content {
+  block-size: auto;
+}
+
+.text {
+  margin: 16px 0 0;
+  color: #0095cd;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: normal;
+}
+
+/* Caja de 584 × 888.3: video de 602 × 993.3 desplazado -105px, visible hasta su borde inferior. */
+.video {
+  position: relative;
+  container-type: inline-size;
+  aspect-ratio: 584 / 888.3;
+  overflow: hidden;
+  border-radius: 30px;
+  background: #d8d8d8;
+  box-shadow:
+    inset -6px -8px 10px 0 rgba(248, 248, 248, 0.25),
+    inset 5px 10px 10px 0 rgba(233, 233, 233, 0.25);
+}
+
+.video video {
+  position: absolute;
+  top: calc(-105 * 100cqw / 584);
+  left: 0;
+  width: calc(602 * 100cqw / 584);
+  max-width: none; /* el preflight de Tailwind lo limita al 100% */
+  height: auto;
+}
+
+@media (max-width: 900px) {
+  .section {
+    grid-template-columns: 1fr;
+    row-gap: 48px;
+    padding: 80px 24px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .summary,
+  .arrow,
+  .item::details-content {
+    transition: none;
+  }
+}

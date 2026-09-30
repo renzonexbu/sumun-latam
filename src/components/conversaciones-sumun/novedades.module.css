@@ -1,0 +1,398 @@
+/*
+ * Frame de 1439 × 989. Recorta arriba y a los costados; la forma derecha baja
+ * sobre la sección siguiente.
+ */
+.section {
+  --px: calc(100vw / 1440);
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 989px;
+  padding: 80px 24px;
+  clip-path: inset(0 0 -500px 0);
+  background: #004656;
+  box-shadow:
+    inset 22px -61px 144.8px -101px rgba(0, 185, 255, 0.69),
+    inset -18px 8px 100px -37px rgba(255, 58, 0, 0.12);
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  width: min(983px, 100%);
+}
+
+.title {
+  margin: 0;
+  color: #fefefe;
+  font-family: var(--font-figtree), sans-serif;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.notas {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Tarjeta destacada: 400px de alto, foto de 482 y cuerpo de 500 desde x=479. */
+.destacada,
+.nota {
+  display: flex;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #fff;
+}
+
+.destacada {
+  height: 400px;
+}
+
+.media,
+.mediaChica {
+  position: relative;
+  flex-shrink: 0;
+  background: #d2d2d2;
+}
+
+.media,
+.mediaChica {
+  overflow: hidden;
+}
+
+/* Fotos con los recortes de Figma (medidas relativas a su caja). */
+.media img,
+.mediaChica img {
+  position: absolute;
+  max-width: none;
+  object-fit: cover;
+}
+
+.fotoCultura {
+  bottom: -33.3px;
+  left: -246.11px;
+  width: 899.48px;
+  height: 490.34px;
+}
+
+.fotoConectar {
+  top: -19.95px;
+  left: -111px;
+  width: 526.41px;
+  height: 295.53px;
+}
+
+.fotoGlocal {
+  bottom: 0;
+  left: -150.98px;
+  width: 430.13px;
+  height: 287px;
+}
+
+/* El degradé radial blanco del export queda debajo de las fotos: en la captura se ven nítidas. */
+
+.media {
+  width: 482px;
+}
+
+.cuerpo {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  justify-content: center;
+  width: 500px;
+  margin-left: -3px;
+  padding: 0 50px;
+}
+
+.textos {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+.tag {
+  padding: 4px 8px;
+  border-radius: 20px;
+  background: rgba(241, 90, 46, 0.11);
+  color: #f15a2e;
+  font-family: var(--font-manrope), sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.tagChico {
+  font-size: 12px;
+}
+
+.notaTitle,
+.notaTitleChico {
+  margin: 0;
+  color: #003d4c;
+  font-family: var(--font-figtree), sans-serif;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.notaTitle {
+  font-size: 28px;
+}
+
+.notaTitleChico {
+  font-size: 16px;
+}
+
+.notaText,
+.notaTextChico {
+  margin: 0;
+  color: #696969;
+  font-family: var(--font-manrope), sans-serif;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.notaText {
+  font-size: 16px;
+}
+
+/* Figma: alto fijo de 84px con ellipsis → 4 líneas. */
+.notaTextChico {
+  display: -webkit-box;
+  overflow: hidden;
+  font-size: 14px;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+}
+
+/* Tarjetas chicas: foto de 211 + cuerpo de 270. */
+.fila {
+  display: flex;
+  gap: 20px;
+}
+
+.mediaChica {
+  width: 211px;
+}
+
+.cuerpoChico {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 270px;
+  padding: 20px 19.5px;
+}
+
+/* Autores */
+.meta {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.avatares {
+  display: flex;
+}
+
+.avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #f2f5fc;
+}
+
+.avatar + .avatar {
+  margin-left: -6px;
+}
+
+.byline {
+  margin: 0;
+  color: #003d4c;
+  font-family: var(--font-manrope), sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: normal;
+}
+
+/* Provisorio: token text-small-normal sin valor; Roboto como en las tarjetas chicas. */
+.fecha {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin: 0;
+  color: #696969;
+  font-family: var(--font-roboto), sans-serif;
+  font-size: 12px;
+  line-height: normal;
+}
+
+.metaChica {
+  gap: 11.67px;
+}
+
+.metaChica .avatar {
+  width: 35px;
+  height: 35px;
+}
+
+.metaChica .byline,
+.metaChica .fecha {
+  font-size: 10.21px;
+}
+
+.metaChica .fecha {
+  gap: 5.83px;
+}
+
+/* Decorativos: caja de 522.83 × 702 con la imagen en cover, rotada desde 0 0. */
+.decor {
+  position: absolute;
+  width: calc(522.83 * var(--px));
+  height: calc(702 * var(--px));
+  overflow: hidden;
+  transform-origin: 0 0;
+  pointer-events: none;
+}
+
+.decor img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Subida a pedido (Figma: 975.18) para que quede más sobre el azul que sobre la sección siguiente. */
+.decorDer {
+  top: calc(800 * var(--px));
+  left: calc(906 * var(--px));
+  transform: translate(30%, 20%) rotate(-30deg);
+}
+
+/* ponytail: top ajustado a la captura (620 en Figma quedaba ~260px más abajo con este recorte). */
+.decorIzq {
+  top: calc(360 * var(--px));
+  left: calc(-39.65 * var(--px));
+  transform: translate(-25%, -15%) rotate(-165deg);
+}
+
+@media (max-width: 1040px) {
+  .destacada,
+  .fila,
+  .nota {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .media {
+    width: 100%;
+    height: 240px;
+  }
+
+  .media img,
+  .mediaChica img {
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .cuerpo,
+  .cuerpoChico {
+    width: 100%;
+    margin: 0;
+    padding: 24px;
+  }
+
+  .mediaChica {
+    width: 100%;
+    height: 180px;
+  }
+}
+
+/* Al llegar: las formas entran desde afuera a su lugar y las notas suben de a una. */
+.decor {
+  opacity: 0;
+  transition:
+    transform 1.4s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.8s ease;
+}
+
+.section[data-revealed] .decorDer {
+  opacity: 1;
+  transform: rotate(-47.13deg);
+}
+
+.section[data-revealed] .decorIzq {
+  opacity: 1;
+  transform: rotate(-146.374deg);
+}
+
+.title,
+.destacada,
+.nota {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.destacada {
+  transition-delay: 0.15s;
+}
+
+.nota {
+  transition-delay: 0.3s;
+}
+
+.nota + .nota {
+  transition-delay: 0.42s;
+}
+
+.section[data-revealed] .title,
+.section[data-revealed] .destacada,
+.section[data-revealed] .nota {
+  opacity: 1;
+  transform: none;
+}
+
+/* Hover: la foto se acerca apenas. */
+.media img,
+.mediaChica img {
+  transition: transform 0.5s ease;
+}
+
+.destacada:hover .media img,
+.nota:hover .mediaChica img {
+  transform: scale(1.04);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .decor,
+  .title,
+  .destacada,
+  .nota {
+    opacity: 1;
+    transition: none;
+  }
+
+  .title,
+  .destacada,
+  .nota {
+    transform: none;
+  }
+
+  .decorDer {
+    transform: rotate(-47.13deg);
+  }
+
+  .decorIzq {
+    transform: rotate(-146.374deg);
+  }
+}

@@ -57,6 +57,8 @@ function isActive(item: NavItem, pathname: string) {
 
 export function Header() {
   const [open, setOpen] = useState(false);
+  // Header como píldora blanca en las vistas que lo llevan así en Figma.
+  const solid = ["/tutor-ia", "/conversaciones-sumun", "/impacto-social"].includes(usePathname());
   const [menu, setMenu] = useState<string | null>(null);
   const [mobileSub, setMobileSub] = useState<string | null>(null);
   const closeTimer = useRef<number | undefined>(undefined);
@@ -112,6 +114,8 @@ export function Header() {
   };
 
   return (
+    <header className={solid ? `${styles.header} ${styles.solid}` : styles.header}>
+      <div className={styles.bar}>
     <header
       className={scrolled ? `${styles.header} ${styles.headerScrolled}` : styles.header}
       style={{ viewTransitionName: "site-header" }}

@@ -1,0 +1,366 @@
+.section {
+  position: relative;
+  overflow: hidden;
+  background: #004656;
+  /* Arriba: 180px (subido a pedido para ver más del hero sin scrollear). */
+  padding: 180px 0 calc(220 / 1440 * 100vw); /* abajo: 220px del frame de 1440, proporcional */
+}
+
+/* Rectangle 212: ancho completo, anclado abajo. Figma pide blur 25px, pero su blur de capa equivale a la mitad en CSS. Se omite el lightgray del export. */
+.fondo {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  filter: blur(12.5px);
+  pointer-events: none;
+}
+
+/* Valores de Dev Mode de Figma: columna de 851px, gap 16 textos / 40 al botón. */
+.content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: center;
+  width: min(851px, 100% - 48px);
+  margin: 0 auto;
+}
+
+.texts {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  color: #fefefe;
+  text-align: center;
+}
+
+.eyebrow,
+.lead {
+  margin: 0;
+  font-family: var(--font-manrope), sans-serif;
+  font-size: 18px;
+  line-height: normal;
+  letter-spacing: 0.01em;
+}
+
+.eyebrow {
+  font-weight: 700;
+}
+
+.lead {
+  font-weight: 400;
+}
+
+/* Provisorio: faltan los estilos heading-span del export. Igual al título de TutorSection. */
+.title {
+  margin: 0;
+  font-family: var(--font-figtree), sans-serif;
+  font-size: 50px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+/* Provisorio: secundarios-truquesa-400, tomado a ojo de la captura. */
+.accent {
+  color: #0095cd;
+}
+
+.cta {
+  display: flex;
+  gap: 7.39px;
+  align-items: center;
+  justify-content: center;
+  height: 50.85px;
+  padding: 12.93px 22.16px;
+  border: 1px solid #89d5f1;
+  border-radius: 92.32px;
+  background: #fff;
+  color: #004656;
+  font-family: var(--font-manrope), sans-serif;
+  font-size: 16.62px;
+  font-weight: 700;
+  line-height: normal;
+  /* Brillo metálico: franja que cruza de izquierda a derecha, detrás del texto. */
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.cta::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    110deg,
+    transparent 30%,
+    rgba(137, 213, 241, 0.45) 44%,
+    rgba(255, 255, 255, 0.95) 50%,
+    rgba(137, 213, 241, 0.45) 56%,
+    transparent 70%
+  );
+  transform: translateX(-100%);
+  animation: brillo 3s ease-in-out infinite;
+}
+
+@keyframes brillo {
+  60%,
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/*
+ * Mockup y tarjetas flotantes. Lienzo de 1440 × 602 (desde el borde inferior del botón)
+ * y --px = 1px de Figma, para que todo escale en proporción al ancho.
+ * ponytail: posiciones medidas de la captura, ajustar con las coordenadas del nodo de Figma.
+ */
+.stage {
+  position: relative;
+  container-type: inline-size;
+  width: 100%;
+  aspect-ratio: 1440 / 602;
+  margin: 0 auto;
+}
+
+.stage > * {
+  --px: calc(100cqw / 1440);
+  position: absolute;
+  height: auto;
+}
+
+.mockup {
+  top: calc(59 * var(--px));
+  left: calc(203.7 * var(--px));
+  width: calc(1035.5 * var(--px));
+}
+
+/* Radios medidos de las capturas: ~10px las tarjetas chicas, ~20px las anchas. */
+.card {
+  border-radius: calc(10 * var(--px));
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+}
+
+.estudiar,
+.seguimiento,
+.crear {
+  border-radius: calc(20 * var(--px));
+}
+
+/* Píldoras en HTML: los PNG venían recortados en rectángulo. Colores tomados del propio PNG (provisorio). */
+.pill {
+  display: flex;
+  gap: calc(10 * var(--px));
+  align-items: center;
+  margin: 0;
+  padding: 0 calc(20 * var(--px)) 0 calc(10 * var(--px));
+  border-radius: 100px;
+  background: linear-gradient(90deg, #f0f2f4, #e9ebed);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+  color: #1f2937;
+  font-family: var(--font-manrope), sans-serif;
+  font-size: calc(12 * var(--px));
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.pill img {
+  width: calc(26 * var(--px));
+  height: auto;
+  border-radius: calc(6 * var(--px));
+}
+
+
+/* Posiciones medidas de las capturas (px del frame de 1440). */
+.estudiar {
+  top: calc(79.3 * var(--px));
+  left: calc(70 * var(--px));
+  width: calc(215 * var(--px));
+}
+
+.explicame {
+  top: calc(164 * var(--px));
+  left: calc(211 * var(--px));
+  height: calc(43 * var(--px));
+}
+
+.tareas {
+  top: calc(352 * var(--px));
+  left: calc(121 * var(--px));
+  width: calc(151 * var(--px));
+}
+
+.tareasFoto {
+  top: calc(286 * var(--px));
+  left: calc(204 * var(--px));
+  width: calc(124 * var(--px));
+}
+
+.preparar {
+  top: calc(522 * var(--px));
+  left: calc(379 * var(--px));
+  width: calc(166 * var(--px));
+}
+
+.revisar {
+  top: calc(17.6 * var(--px));
+  left: calc(937 * var(--px));
+  width: calc(171.5 * var(--px));
+}
+
+.ayudame {
+  top: calc(-8.4 * var(--px));
+  left: calc(1045 * var(--px));
+  height: calc(48 * var(--px));
+}
+
+.seguimiento {
+  top: calc(219 * var(--px));
+  left: calc(1062 * var(--px));
+  width: calc(291 * var(--px));
+}
+
+.seguimientoFoto {
+  top: calc(154 * var(--px));
+  left: calc(1238 * var(--px));
+  width: calc(144 * var(--px));
+}
+
+.crear {
+  top: calc(525 * var(--px));
+  left: calc(946.5 * var(--px));
+  width: calc(295 * var(--px));
+}
+
+.crearFoto {
+  top: calc(446 * var(--px));
+  left: calc(1027 * var(--px));
+  width: calc(134 * var(--px));
+}
+
+/* Niebla de Figma sobre todo el hero. ponytail: alto (~400px del frame) medido de las capturas. */
+.niebla {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: calc(400 / 1440 * 100vw);
+  background: linear-gradient(180deg, rgba(218, 245, 254, 0) 0%, #daf5fe 100%);
+  pointer-events: none;
+}
+
+/*
+ * Entrada del hero en tres tiempos:
+ * 1) el mockup se abre del centro a los costados,
+ * 2) las tarjetas grandes llegan desde fuera de la pantalla,
+ * 3) píldoras y fotos aparecen cuando las tarjetas ya están en su lugar.
+ */
+@keyframes abrirCentro {
+  from {
+    clip-path: inset(0 50% 0 50%);
+    opacity: 0;
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
+  }
+}
+
+@keyframes entrarIzq {
+  from {
+    transform: translateX(-70vw);
+    opacity: 0;
+  }
+}
+
+@keyframes entrarDer {
+  from {
+    transform: translateX(70vw);
+    opacity: 0;
+  }
+}
+
+@keyframes aparecer {
+  from {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+}
+
+.mockup {
+  animation: abrirCentro 0.9s cubic-bezier(0.65, 0, 0.35, 1) 0.3s both;
+}
+
+.estudiar,
+.tareas,
+.preparar {
+  animation: entrarIzq 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.revisar,
+.seguimiento,
+.crear {
+  animation: entrarDer 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.estudiar,
+.revisar {
+  animation-delay: 1s;
+}
+
+.tareas,
+.seguimiento {
+  animation-delay: 1.12s;
+}
+
+.preparar,
+.crear {
+  animation-delay: 1.24s;
+}
+
+.pill,
+.tareasFoto,
+.seguimientoFoto,
+.crearFoto {
+  animation: aparecer 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+.explicame,
+.ayudame {
+  animation-delay: 2.05s;
+}
+
+.tareasFoto,
+.seguimientoFoto {
+  animation-delay: 2.15s;
+}
+
+.crearFoto {
+  animation-delay: 2.25s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stage > *,
+  .cta::before {
+    animation: none;
+  }
+}
+
+/* Sin diseño mobile aún: el fondo baja debajo del texto para no perder legibilidad. */
+@media (max-width: 700px) {
+  .section {
+    padding-top: 160px;
+    padding-bottom: 30vw;
+  }
+
+  .title {
+    font-size: 34px;
+  }
+
+  .eyebrow,
+  .lead {
+    font-size: 16px;
+  }
+}
